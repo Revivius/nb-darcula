@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.revivius</groupId>
+    <artifactId>nb-darcula</artifactId>
+    <version>1.2</version>
+    <packaging>nbm</packaging>
+    
+    <name>Darcula LAF for NetBeans</name>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>nbm-maven-plugin</artifactId>
+                <version>3.13</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <author>Revivius</author>
+                    <requiresRestart>true</requiresRestart>
+                    <licenseFile>src/main/resources/LICENSE-2.0.txt</licenseFile>
+                    <licenseName>Apache 2.0</licenseName>
+                    <keystore>keystore/store.jks</keystore>
+                    <keystorealias>Revivius</keystorealias>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <useDefaultManifestFile>true</useDefaultManifestFile>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <repositories>
+        <repository>
+            <id>lib</id>
+            <name>lib</name>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>file://${project.basedir}\lib</url>
+        </repository>
+        <repository>
+            <id>netbeans</id>
+            <name>Repository hosting NetBeans modules</name>
+            <url>http://bits.netbeans.org/nexus/content/groups/netbeans</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+        <!-- Darcula LAF -->
+        <dependency>
+            <groupId>com.bulenkov</groupId>
+            <artifactId>darcula</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-swing-plaf</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-modules</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
+       
+        <!-- For NbPreferences and Lookup -->
+        <dependency>
+            <artifactId>org-openide-util-lookup</artifactId>
+            <groupId>org.netbeans.api</groupId>
+            <version>${netbeans.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>org-openide-util</artifactId>
+            <groupId>org.netbeans.api</groupId>
+            <version>${netbeans.version}</version>
+        </dependency>
+    </dependencies>
+    
+    <properties>
+        <netbeans.version>RELEASE80</netbeans.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <description>&lt;h1&gt;Darcula LAF for NetBeans&lt;/h1&gt;
+
+A NetBeans Look And Feel plugin using Darcula theme from IntelliJ Idea.
+
+Wraps Darcula LAF from:  &lt;a href="https://github.com/bulenkov/Darcula"&gt;https://github.com/bulenkov/Darcula&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original LAF.&lt;/b&gt;
+
+&lt;h2&gt;Change Log&lt;/h2&gt;
+
+&lt;h3&gt;[1.2] - 2017-01-19&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed dark text in Code Completion popup.&lt;/li&gt;
+&lt;li&gt;Removed more harsh white borders (including the ones in Options window and sliding buttons). A few remaining (such as the one in Search Results) are hardcoded and I dont know a good way of patching those.&lt;/li&gt;
+&lt;li&gt;Added a slight margin for buttons.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;[1.1] - 2017-01-17&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Font size issue fixed. It is now possible to use --fontsize switch (either in conf file or command line) to specify desired font size, default size is 12.&lt;/li&gt;
+&lt;li&gt;'Darcula for NetBeans' is now in 'Preferred look and feel' drop down as requested (Tools &gt; Options &gt; Appearance &gt; Look and Feel). Plugin will set LAF to Darcula during first restart. After that user can switch LAF without uninstalling/disabling the plugin.&lt;/li&gt;
+&lt;li&gt;Colors in Options window match properly with LAF.&lt;/li&gt;
+&lt;li&gt;Many harsh white borders (including the one of search box at top right corner of main window) removed.&lt;/li&gt;
+&lt;li&gt;Contrasting light versions of most core icons provided (close, slide, minimize, restore etc).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;[1.0] - 2017-01-14&lt;/h3&gt;
+    </description>
+
+</project>
