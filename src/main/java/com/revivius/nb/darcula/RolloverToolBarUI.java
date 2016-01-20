@@ -9,8 +9,8 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicToolBarUI;
 
 /**
- * A ToolBarUI that installs a ChangeListener on buttons to enable rollover
- * for JButtons and JToggleButtons.
+ * A ToolBarUI that installs a ChangeListener on buttons to enable rollover for
+ * JButtons and JToggleButtons.
  *
  * @author Revivius
  */

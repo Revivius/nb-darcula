@@ -18,9 +18,9 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 /**
- * A minor re-write of DarculaButtonUI to prevent painting background
- * when content area filled property is set to false on button.
- * 
+ * A minor re-write of DarculaButtonUI to prevent painting background when
+ * content area filled property is set to false on button.
+ *
  * Mostly copy paste from DarculaButtonUI.
  *
  * @author Revivius
@@ -48,7 +48,7 @@ public class ContentAreaAwareButtonUI extends BasicButtonUI {
         AbstractButton b = (AbstractButton) c;
         if ((c.isEnabled()) && (border != null)) {
             //if (!square) {
-                g2d.setPaint(getBackgroundPaint(c));
+            g2d.setPaint(getBackgroundPaint(c));
             //}
 
             if (b.isContentAreaFilled()) {

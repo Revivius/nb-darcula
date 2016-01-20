@@ -8,15 +8,22 @@ import javax.swing.UIManager;
 
 /**
  * Copy paste from o.n.swing.plaf.
+ *
  * @author Revivius
  */
 public final class ToolbarXP extends JPanel {
 
-    /** Width of grip. */
+    /**
+     * Width of grip.
+     */
     private static final int GRIP_WIDTH = 7;
-    /** Minimum size. */
+    /**
+     * Minimum size.
+     */
     private final Dimension dim;
-    /** Maximum size. */
+    /**
+     * Maximum size.
+     */
     private final Dimension max;
 
     public ToolbarXP() {

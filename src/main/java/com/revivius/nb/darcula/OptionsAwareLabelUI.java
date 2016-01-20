@@ -21,8 +21,8 @@ import javax.swing.plaf.basic.BasicLabelUI;
 import org.netbeans.swing.plaf.LFCustoms;
 
 /**
- * Many thanks to Neil C. Smith of Praxis-Life. This trick is mostly
- * based on his excellent blog article:
+ * Many thanks to Neil C. Smith of Praxis-Life. This trick is mostly based on
+ * his excellent blog article:
  * https://praxisintermedia.wordpress.com/2011/09/29/the-dark-arts-of-netbeans-hackery/
  *
  * @author Revivius
@@ -60,7 +60,7 @@ public class OptionsAwareLabelUI extends BasicLabelUI {
         if (bgReplaced) {
             return;
         }
-        
+
         // In NB 8.1 CategoryButtons are in a JScrollPane
         Container parent = SwingUtilities.getAncestorOfClass(JScrollPane.class, c);
         if (parent == null) {

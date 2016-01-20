@@ -138,6 +138,7 @@ public class RelativeColor implements UIDefaults.LazyValue {
         }
     }
     
+    @Override
     public Object createValue(UIDefaults table) {
         if (value != null) {
             return value;
@@ -266,9 +267,9 @@ public class RelativeColor implements UIDefaults.LazyValue {
         return result;
     }
     
-    private static final void out (String nm, float[] f) {
+    private static void out (String nm, float[] f) {
         //XXX for debugging - deleteme
-        StringBuffer sb = new StringBuffer(nm);
+        StringBuilder sb = new StringBuilder(nm);
         sb.append(": ");
         for (int i=0; i < f.length; i++) {
             sb.append (Math.round(f[i] * 100));
