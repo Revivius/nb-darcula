@@ -2,6 +2,7 @@ package com.revivius.nb.darcula;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.Insets;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -77,6 +78,15 @@ public class DarculaLFCustoms extends LFCustoms {
             fontsize = in;
         }
 
+        // Try to use "Segoe UI" - this is the default UI font for Idea 15 (Win7,JDK8)
+        String preferedFontName = "Segoe UI";
+        String fontName = "Dialog";
+        for (Font font : GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()) {
+            if (preferedFontName.equals(font.getName())) {
+                fontName = preferedFontName;
+                break;
+            }
+        }
         /**
          * HtmlLabelUI sets the border color to BLUE for focused cells if
          * "Tree.selectionBorderColor" is same as background color (see lines
@@ -88,7 +98,7 @@ public class DarculaLFCustoms extends LFCustoms {
         Color focusColor = new Color(c.getRed(), c.getGreen(), c.getBlue() + 1);
 
         //XXX fetch the custom font size here instead
-        Font controlFont = new Font("Dialog", Font.PLAIN, fontsize); //NOI18N
+        Font controlFont = new Font(fontName, Font.PLAIN, fontsize); //NOI18N
         Object[] result = {
             //The assorted standard NetBeans metal font customizations
             CONTROLFONT, controlFont,
@@ -99,7 +109,7 @@ public class DarculaLFCustoms extends LFCustoms {
             LISTFONT, controlFont,
             TREEFONT, controlFont,
             PANELFONT, controlFont,
-            SUBFONT, new Font("Dialog", Font.PLAIN, Math.min(fontsize - 1, 6)),
+            SUBFONT, new Font(preferedFontName, Font.PLAIN, Math.min(fontsize - 1, 6)),
             // #61395        
             SPINNERFONT, controlFont,
             
@@ -107,7 +117,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "textInactiveText", Color.GRAY, //NOI18N
             // Work around a bug in windows which sets the text area font to
             //"MonoSpaced", causing all accessible dialogs to have monospaced text
-            "TextArea.font", new GuaranteedValue("Label.font", new Font("Dialog", Font.PLAIN, fontsize)),
+            "TextArea.font", new GuaranteedValue("Label.font", controlFont),
             
             /**
              * Use calculate border color for HtmlLabelUI.
@@ -159,8 +169,59 @@ public class DarculaLFCustoms extends LFCustoms {
             "FileView.fileIcon", new ImageIcon(DarculaLFCustoms.class.getResource("file.png")),
             "FileChooser.computerIcon", new ImageIcon(DarculaLFCustoms.class.getResource("computer.png")),
             "FileChooser.hardDriveIcon", new ImageIcon(DarculaLFCustoms.class.getResource("hardDrive.png")),
-            "FileChooser.floppyDriveIcon", new ImageIcon(DarculaLFCustoms.class.getResource("floppyDrive.png"))
-                
+            "FileChooser.floppyDriveIcon", new ImageIcon(DarculaLFCustoms.class.getResource("floppyDrive.png")),
+            
+            // Keys taken from
+            // http://alvinalexander.com/java/java-swing-uimanager-defaults
+            // https://gist.github.com/itzg/5938035
+            // http://thebadprogrammer.com/swing-uimanager-keys/
+            "Button.font", controlFont,
+            "CheckBox.font", controlFont,
+            "CheckBoxMenuItem.acceleratorFont", controlFont,
+            "CheckBoxMenuItem.font", controlFont,
+            "ColorChooser.font", controlFont,
+            "ComboBox.font", controlFont,
+            "EditorPane.font", controlFont,
+            "FormattedTextField.font", controlFont,
+            "IconButton.font", controlFont,
+            "InternalFrame.optionDialogTitleFont", controlFont,
+            "InternalFrame.paletteTitleFont", controlFont,
+            "InternalFrame.titleFont", controlFont,
+            "Label.font", controlFont,
+            "List.font", controlFont,
+            "Menu.acceleratorFont", controlFont,
+            "Menu.font", controlFont,
+            "MenuBar.font", controlFont,
+            "MenuItem.acceleratorFont", controlFont,
+            "MenuItem.font", controlFont,
+            "OptionPane.buttonFont", controlFont,
+            "OptionPane.font", controlFont,
+            "OptionPane.messageFont", controlFont,
+            "Panel.font", controlFont,
+            "PasswordField.font", controlFont,
+            "PopupMenu.font", controlFont,
+            "ProgressBar.font", controlFont,
+            "RadioButton.font", controlFont,
+            "RadioButtonMenuItem.acceleratorFont", controlFont,
+            "RadioButtonMenuItem.font", controlFont,
+            "ScrollPane.font", controlFont,
+            "Slider.font", controlFont,
+            "Spinner.font", controlFont,
+            "TabbedPane.font", controlFont,
+            //for what?
+            //"TabbedPane.smallFont", controlFont,
+            "Table.font", controlFont,
+            "TableHeader.font", controlFont,
+            "TextArea.font", controlFont,
+            "TextField.font", controlFont,
+            "TextPane.font", controlFont,
+            "TitledBorder.font", controlFont,
+            "ToggleButton.font", controlFont,
+            "ToolBar.font", controlFont,
+            "ToolTip.font", controlFont,
+            "Tree.font", controlFont,
+            "Viewport.font", controlFont,
+            
         };
 
         replaceSearchNotFoundColor();
