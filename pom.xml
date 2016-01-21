@@ -111,14 +111,14 @@ Wraps Darcula LAF from:  &lt;a href="https://github.com/bulenkov/Darcula"&gt;htt
 
 &lt;h2&gt;Change Log&lt;/h2&gt;
 
-&lt;h3&gt;[1.2] - 2017-01-19&lt;/h3&gt;
+&lt;h3&gt;[1.2] - 2016-01-19&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Fixed dark text in Code Completion popup.&lt;/li&gt;
 &lt;li&gt;Removed more harsh white borders (including the ones in Options window and sliding buttons). A few remaining (such as the one in Search Results) are hardcoded and I dont know a good way of patching those.&lt;/li&gt;
 &lt;li&gt;Added a slight margin for buttons.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;[1.1] - 2017-01-17&lt;/h3&gt;
+&lt;h3&gt;[1.1] - 2016-01-17&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Font size issue fixed. It is now possible to use --fontsize switch (either in conf file or command line) to specify desired font size, default size is 12.&lt;/li&gt;
 &lt;li&gt;'Darcula for NetBeans' is now in 'Preferred look and feel' drop down as requested (Tools &gt; Options &gt; Appearance &gt; Look and Feel). Plugin will set LAF to Darcula during first restart. After that user can switch LAF without uninstalling/disabling the plugin.&lt;/li&gt;
@@ -127,7 +127,7 @@ Wraps Darcula LAF from:  &lt;a href="https://github.com/bulenkov/Darcula"&gt;htt
 &lt;li&gt;Contrasting light versions of most core icons provided (close, slide, minimize, restore etc).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;[1.0] - 2017-01-14&lt;/h3&gt;
+&lt;h3&gt;[1.0] - 2016-01-14&lt;/h3&gt;
     </description>
 
 </project>
