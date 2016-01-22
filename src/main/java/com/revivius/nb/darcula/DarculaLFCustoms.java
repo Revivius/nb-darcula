@@ -158,7 +158,9 @@ public class DarculaLFCustoms extends LFCustoms {
             "Tree.background", new Color(69, 73, 74),
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
-            
+            // NetBeans DebuggingViewComponent uses it as background color
+            "Tree.textBackground", new Color(69, 73, 74),
+
             // FileChooser icons
             "FileChooser.newFolderIcon", new ImageIcon(DarculaLFCustoms.class.getResource("newFolder.png")),
             "FileChooser.upFolderIcon", new ImageIcon(DarculaLFCustoms.class.getResource("upFolder.png")),
@@ -290,6 +292,13 @@ public class DarculaLFCustoms extends LFCustoms {
             
             // popup switcher
             "nb.popupswitcher.border", BorderFactory.createLineBorder(new Color(45, 45, 45)),
+            
+             // debugger
+            "nb.debugger.debugging.currentThread", new Color(30, 80, 28),
+            "nb.debugger.debugging.highlightColor", new Color(40, 60, 38),
+            "nb.debugger.debugging.BPHits", new Color(65, 65, 0),
+            "nb.debugger.debugging.bars.BPHits", new Color(120, 120, 25),
+            "nb.debugger.debugging.bars.currentThread", new Color(40, 100, 35),
             
             // heapview
             "nb.heapview.border1", new Color(113, 113, 113),
