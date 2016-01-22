@@ -30,11 +30,11 @@ public final class ToolbarXP extends JPanel {
         int x = 3;
         for (int i = 4; i < getHeight() - 4; i += 4) {
             //first draw the rectangular highlight below each dot
-            g.setColor(UIManager.getColor("controlLtHighlight")); //NOI18N
+            g.setColor(UIManager.getColor("controlLtHighlight").brighter()); //NOI18N
             g.fillRect(x + 1, i + 1, 2, 2);
             //Get the shadow color.  We'll paint the darkest dot first,
             //and work our way to the lightest
-            Color col = UIManager.getColor("controlShadow"); //NOI18N
+            Color col = UIManager.getColor("controlShadow").brighter(); //NOI18N
             g.setColor(col);
             //draw the darkest dot
             g.drawLine(x + 1, i + 1, x + 1, i + 1);
@@ -90,14 +90,6 @@ public final class ToolbarXP extends JPanel {
     @Override
     public Dimension getMinimumSize() {
         return dim;
-    }
-
-    /**
-     * @return preferred size
-     */
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(GRIP_WIDTH, getParent().getHeight() - 4);
     }
 
     @Override
