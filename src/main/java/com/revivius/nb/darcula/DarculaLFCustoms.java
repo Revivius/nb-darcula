@@ -25,9 +25,10 @@ import org.openide.util.NbPreferences;
  */
 public class DarculaLFCustoms extends LFCustoms {
 
-    public static final String defaultFontName = "Dialog";
-    public static final int defaultFontSize = 12;
-    public static final String defaultFont = defaultFontName + " " + defaultFontSize;
+    public static final String DEFAULT_FONT_NAME = "Dialog";
+    public static final int DEFAULT_FONT_SIZE = 12;
+    public static final String DEFAULT_FONT = DEFAULT_FONT_NAME + " " + DEFAULT_FONT_SIZE;
+
     private static final String TAB_FOCUS_FILL_UPPER = "tab_focus_fill_upper"; //NOI18N
     private static final String TAB_FOCUS_FILL_LOWER = "tab_focus_fill_lower"; //NOI18N
 
@@ -76,15 +77,15 @@ public class DarculaLFCustoms extends LFCustoms {
         // stretching view tabs seems to be causing resize problems
         System.setProperty("NB.WinSys.Splitter.Respect.MinimumSize.Enabled", "false");
 
-        Font controlFont = Font.decode(defaultFont);
+        Font controlFont = Font.decode(DEFAULT_FONT);
         Integer in = (Integer) UIManager.get(CUSTOM_FONT_SIZE); //NOI18N
         if (in != null) {
-            controlFont = Font.decode(defaultFontName + " " + in);
+            controlFont = Font.decode(DEFAULT_FONT_NAME + " " + in);
         }
 
         boolean overrideFontOption = NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("overrideFont", false);
         if (overrideFontOption) {
-            String fontOption = NbPreferences.forModule(DarculaLAFPanel.class).get("font", defaultFont);
+            String fontOption = NbPreferences.forModule(DarculaLAFPanel.class).get("font", DEFAULT_FONT);
             controlFont = Font.decode(fontOption);
         }
         /**

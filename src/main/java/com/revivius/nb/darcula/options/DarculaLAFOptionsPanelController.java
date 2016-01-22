@@ -15,13 +15,21 @@
  */
 package com.revivius.nb.darcula.options;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.prefs.PreferenceChangeEvent;
+import java.util.prefs.PreferenceChangeListener;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 import org.netbeans.spi.options.OptionsPanelController;
+import org.openide.LifecycleManager;
+import org.openide.awt.NotificationDisplayer;
 import org.openide.util.HelpCtx;
+import org.openide.util.ImageUtilities;
 import org.openide.util.Lookup;
+import org.openide.util.NbPreferences;
 
 @OptionsPanelController.SubRegistration(
         location = "Appearance",
@@ -29,9 +37,34 @@ import org.openide.util.Lookup;
         keywords = "#AdvancedOption_Keywords_DarculaLAF",
         keywordsCategory = "Appearance/DarculaLAF"
 )
-@org.openide.util.NbBundle.Messages({"AdvancedOption_DisplayName_DarculaLAF=Darcula Look and Feel", "AdvancedOption_Keywords_DarculaLAF=darcula laf, dark, theme, font, laf"})
+@org.openide.util.NbBundle.Messages({
+    "AdvancedOption_DisplayName_DarculaLAF=Darcula Look and Feel",
+    "AdvancedOption_Keywords_DarculaLAF=darcula laf, dark, theme, font, laf"
+})
 public final class DarculaLAFOptionsPanelController extends OptionsPanelController {
 
+    private static final PreferenceChangeListener PREF_LISTENER = new PreferenceChangeListener() {
+        @Override
+        public void preferenceChange(PreferenceChangeEvent evt) {
+            NotificationDisplayer.getDefault().notify(
+                    "Restart IDE",
+                    ImageUtilities.loadImageIcon("com/revivius/nb/darcula/options/restart.png", true),
+                    "Click here to restart IDE and apply new font settings.",
+                    new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            LifecycleManager.getDefault().markForRestart();
+                            LifecycleManager.getDefault().exit();
+                        }
+                    }
+            );
+        }
+    };
+    
+    static {
+        NbPreferences.forModule(DarculaLAFPanel.class).addPreferenceChangeListener(PREF_LISTENER);
+    }
+    
     private DarculaLAFPanel panel;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;

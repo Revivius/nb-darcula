@@ -19,12 +19,8 @@ import com.revivius.nb.darcula.DarculaLFCustoms;
 import java.awt.Font;
 import java.beans.PropertyEditor;
 import java.beans.PropertyEditorManager;
-import java.net.MalformedURLException;
-import java.net.URL;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
-import org.openide.awt.HtmlBrowser;
-import org.openide.util.Exceptions;
 import org.openide.util.NbPreferences;
 
 @org.netbeans.spi.options.OptionsPanelController.Keywords(location = "Appearance", tabTitle = "Darcula Look and Feel", keywords = {"dark theme", "dark", "theme", "laf", "font", "look and feel", "darcula"})
@@ -38,11 +34,16 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
     }
 
     public void reinitUI() {
+        if (!cbOverride.isSelected()) {
+            lblFontName.setText(DarculaLFCustoms.DEFAULT_FONT);
+        }
+        
         lblFont.setEnabled(cbOverride.isSelected());
         lblFontName.setEnabled(cbOverride.isSelected());
         lblRestart.setEnabled(cbOverride.isSelected());
         btnChooseFont.setEnabled(cbOverride.isSelected());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,25 +55,15 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         cbOverride = new javax.swing.JCheckBox();
-        btnChooseFont = new javax.swing.JButton();
         lblRestart = new javax.swing.JLabel();
         lblFontName = new javax.swing.JTextField();
         lblFont = new javax.swing.JLabel();
+        btnChooseFont = new javax.swing.JButton();
 
         org.openide.awt.Mnemonics.setLocalizedText(cbOverride, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbOverride.text")); // NOI18N
         cbOverride.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 cbOverrideStateChanged(evt);
-            }
-        });
-
-        org.openide.awt.Mnemonics.setLocalizedText(btnChooseFont, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.btnChooseFont.text")); // NOI18N
-        btnChooseFont.setMaximumSize(new java.awt.Dimension(39, 14));
-        btnChooseFont.setMinimumSize(new java.awt.Dimension(39, 14));
-        btnChooseFont.setPreferredSize(new java.awt.Dimension(39, 14));
-        btnChooseFont.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChooseFontActionPerformed(evt);
             }
         });
 
@@ -83,6 +74,13 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
 
         lblFont.setLabelFor(btnChooseFont);
         org.openide.awt.Mnemonics.setLocalizedText(lblFont, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.lblFont.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(btnChooseFont, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.btnChooseFont.text")); // NOI18N
+        btnChooseFont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChooseFontActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -99,10 +97,10 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblFontName, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnChooseFont, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnChooseFont)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblRestart)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,43 +109,42 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
                 .addComponent(cbOverride)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnChooseFont, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFontName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFont)
-                    .addComponent(lblRestart))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addComponent(lblRestart)
+                    .addComponent(btnChooseFont))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnChooseFontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseFontActionPerformed
-
-            PropertyEditor pe = PropertyEditorManager.findEditor (Font.class);
-            Font f = Font.decode(lblFontName.getText());
-            pe.setValue (f);
-            DialogDescriptor dd = new DialogDescriptor (
-                pe.getCustomEditor (),
-                    "Font Chooser"
-            );
-            dd.setOptions (new Object[] {
-                DialogDescriptor.OK_OPTION, 
-                DialogDescriptor.CANCEL_OPTION
-            });
-            DialogDisplayer.getDefault ().createDialog (dd).setVisible (true);
-            if (dd.getValue () == DialogDescriptor.OK_OPTION) {
-                f = (Font) pe.getValue ();
-                lblFontName.setText(f.getName()+" "+f.getSize());
-                controller.changed();
-            } 
-    }//GEN-LAST:event_btnChooseFontActionPerformed
 
     private void cbOverrideStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbOverrideStateChanged
         controller.changed();
         reinitUI();
     }//GEN-LAST:event_cbOverrideStateChanged
 
+    private void btnChooseFontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseFontActionPerformed
+        PropertyEditor pe = PropertyEditorManager.findEditor(Font.class);
+        Font f = Font.decode(lblFontName.getText());
+        pe.setValue(f);
+        DialogDescriptor dd = new DialogDescriptor(
+                pe.getCustomEditor(),
+                "Font Chooser"
+        );
+        dd.setOptions(new Object[]{
+            DialogDescriptor.OK_OPTION,
+            DialogDescriptor.CANCEL_OPTION
+        });
+        DialogDisplayer.getDefault().createDialog(dd).setVisible(true);
+        if (dd.getValue() == DialogDescriptor.OK_OPTION) {
+            f = (Font) pe.getValue();
+            lblFontName.setText(f.getName() + " " + f.getSize());
+            controller.changed();
+        }
+    }//GEN-LAST:event_btnChooseFontActionPerformed
+
     void load() {
         cbOverride.setSelected(NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("overrideFont", false));
-        lblFontName.setText(NbPreferences.forModule(DarculaLAFPanel.class).get("font", DarculaLFCustoms.defaultFont));
+        lblFontName.setText(NbPreferences.forModule(DarculaLAFPanel.class).get("font", DarculaLFCustoms.DEFAULT_FONT));
         reinitUI();
     }
 
