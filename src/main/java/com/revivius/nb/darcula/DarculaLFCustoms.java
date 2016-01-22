@@ -140,7 +140,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "ToggleButton.border", new ReducedInsetsDarculaButtonPainter(),
             
             "ToolBarUI", "com.revivius.nb.darcula.RolloverToolBarUI",
-            "SplitPaneUI", "com.revivius.nb.darcula.EmptyDividerSplitPaneUI",
+            "SplitPaneUI", "com.revivius.nb.darcula.DarculaSplitPaneUI",
             
             "Table.background", new Color(69, 73, 74),
             "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
