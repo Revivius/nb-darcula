@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontscolors PUBLIC "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN" "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
+<fontscolors>
+    <fontcolor name="org-netbeans-modules-web-core-syntax-JspParserErrorAnnotation" waveUnderlined="red"/>
+    <fontcolor bgColor="fffc9d9f" name="debugger-mixed_BP"/>
+    <fontcolor name="org-netbeans-modules-web-beans-annotations-event"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_cmpx_hit_dis"/>
+    <fontcolor bgColor="ffdcdcd8" name="OtherThreads_DBP"/>
+    <fontcolor bgColor="ffb4e4fc" name="stopwatchProfilingPoint"/>
+    <fontcolor bgColor="ffbde6aa" name="OtherThread_PC"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_CBP_stroke"/>
+    <fontcolor bgColor="ffdcdcd8" name="CurrentPC2_DBP"/>
+    <fontcolor name="FieldBreakpoint"/>
+    <fontcolor name="ClassBreakpoint_stroke"/>
+    <fontcolor name="DisabledMethodBreakpoint"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_warn"/>
+    <fontcolor name="org-netbeans-modules-mercurial-Annotation"/>
+    <fontcolor bgColor="ffb4e4fc" name="resetResultsProfilingPoint"/>
+    <fontcolor name="org-netbeans-modules-web-beans-annotations-observer"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_hint"/>
+    <fontcolor bgColor="ffbde6aa" name="Dbx_PC"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-has_implementations"/>
+    <fontcolor bgColor="ffbde6aa" name="Dbx_Bpt_cmpx_hit_broken"/>
+    <fontcolor bgColor="ffdcdcd8" name="CondBreakpoint_stroke"/>
+    <fontcolor bgColor="fffc9d9f" name="CondBreakpoint"/>
+    <fontcolor name="MethodBreakpoint"/>
+    <fontcolor bgColor="ffbde6aa" name="OtherThreads_BP_broken"/>
+    <fontcolor name="MethodBreakpoint_stroke"/>
+    <fontcolor bgColor="fffc9d9f" name="OtherThreads_BP"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_multi_DBPCBP"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_hit_dis"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_cmpx_broken_dis"/>
+    <fontcolor name="PHPError" waveUnderlined="red"/>
+    <fontcolor bgColor="ffe9ffe6" name="CurrentExpressionLine_BP"/>
+    <fontcolor bgColor="ffdcdcd8" name="takeSnapshotProfilingPointD"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-is_overridden_combined_pseudo"/>
+    <fontcolor name="org-netbeans-modules-web-beans-annotations-injection-point"/>
+    <fontcolor name="DisabledClassBreakpoint"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-extended_specializes"/>
+    <fontcolor bgColor="fffc9d9f" name="Dbx_Bpt_cmpx_broken"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_multi_BPCBP"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_hint_fixable"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_cmpx_dis"/>
+    <fontcolor bgColor="ffdcdcd8" name="DisabledBreakpoint_stroke"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_CBP_broken"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_multi_BPCBP_broken"/>
+    <fontcolor name="PHPNotice" waveUnderlined="ffc0c000"/>
+    <fontcolor bgColor="ffbde6aa" name="CurrentPC2LinePart"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_mixedBP_broken"/>
+    <fontcolor name="editor-bookmark"/>
+    <fontcolor bgColor="ffdcdcd8" name="stopwatchProfilingPointD"/>
+    <fontcolor bgColor="ffbde6aa" name="CurrentPC2"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_DBP"/>
+    <fontcolor bgColor="ffdcdcd8" name="DisabledCondBreakpoint"/>
+    <fontcolor name="OtherThread"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_DCBP"/>
+    <fontcolor name="org-netbeans-modules-subversion-remote-Annotation"/>
+    <fontcolor name="FieldBreakpoint_stroke"/>
+    <fontcolor bgColor="ffdcdcd8" name="debugger-multi_DBPCBP"/>
+    <fontcolor bgColor="ff3a2323" name="Breakpoint"/>
+    <fontcolor bgColor="fffc9d9f" name="Dbx_Bpt_cmpx"/>
+    <fontcolor bgColor="ffff8080" name="org-netbeans-modules-tomcat5-error"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-implements-is-overridden-combined"/>
+    <fontcolor bgColor="ffffa0a0" name="org-netbeans-modules-xml-error"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_cmpx_hit_broken_dis"/>
+    <fontcolor bgColor="ffe7e1ef" name="CallSite"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_BP_broken"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_DBP_stroke"/>
+    <fontcolor bgColor="fffc9d9f" name="Dbx_Bpt_broken"/>
+    <fontcolor name="org-netbeans-modules-web-beans-annotations-delegate-point"/>
+    <fontcolor bgColor="ffbde6aa" name="OtherThreads_PC_BP"/>
+    <fontcolor bgColor="ffbde6aa" name="OtherThread_BP_broken"/>
+    <fontcolor bgColor="ffdcdcd8" name="Breakpoint_broken"/>
+    <fontcolor bgColor="ffbde6aa" name="Dbx_Bpt_compound_hit"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_hit_broken_dis"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-is_overridden_combined"/>
+    <fontcolor bgColor="ffbde6aa" name="Dbx_Bpt_cmpx_hit"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_dis"/>
+    <fontcolor name="DisabledFieldBreakpoint"/>
+    <fontcolor bgColor="ffbde6aa" name="Dbx_Bpt_hit"/>
+    <fontcolor bgColor="ffdcdcd8" name="OtherThread_DBP"/>
+    <fontcolor name="DisabledFieldBreakpoint_stroke"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-overrides"/>
+    <fontcolor name="org-netbeans-modules-git-remote-Annotation"/>
+    <fontcolor bgColor="ff3a2323" name="Dbx_Bpt"/>
+    <fontcolor bgColor="ffb4e4fc" name="loadgenProfilingPoint"/>
+    <fontcolor bgColor="ffe9ffe6" name="CurrentExpressionLine_CBP"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_CBP"/>
+    <fontcolor bgColor="ffdcdcd8" name="DisabledBreakpoint"/>
+    <fontcolor bgColor="ffdcdcd8" name="loadgenProfilingPointD"/>
+    <fontcolor foreColor="ffa8c023" name="org-netbeans-spi-editor-hints-parser_annotation_todo_fixable"/>
+    <fontcolor name="OtherThreads"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_warn_fixable"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_err_fixable"/>
+    <fontcolor name="org-netbeans-modules-versioning-annotate-Annotation"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_verifier"/>
+    <fontcolor bgColor="ffdcdcd8" name="debugger-mixed_BP_broken"/>
+    <fontcolor name="org-netbeans-modules-subversion-Annotation"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-specializes"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-implements"/>
+    <fontcolor name="org-netbeans-modules-cnd-highlight-security-error"/>
+    <fontcolor name="DisabledMethodBreakpoint_stroke"/>
+    <fontcolor bgColor="ffbde6aa" name="CurrentPC"/>
+    <fontcolor bgColor="fffc9d9f" name="Dbx_Bpt_compound"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-override-is-overridden-combined"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-intercepted"/>
+    <fontcolor bgColor="fffc9d9f" name="OtherThread_BP"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-is_overridden"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-is_overridden_pseudo"/>
+    <fontcolor bgColor="fffc9d9f" name="debugger-multi_BPCBP"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_DCBP_stroke"/>
+    <fontcolor bgColor="ffdcdcd8" name="resetResultsProfilingPointD"/>
+    <fontcolor bgColor="ffe9ffe6" name="CurrentExpressionLine_DCBP"/>
+    <fontcolor name="org-netbeans-modules-git-Annotation"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-extended_is_specialized"/>
+    <fontcolor bgColor="ffe9ffe6" name="CurrentExpressionLine_DBP"/>
+    <fontcolor name="org-netbeans-modules-cnd-cpp-parser_annotation_err" waveUnderlined="red"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-overrides"/>
+    <fontcolor bgColor="ffb4e4fc" name="takeSnapshotProfilingPoint"/>
+    <fontcolor foreColor="ffa8c023" name="org-netbeans-spi-editor-hints-parser_annotation_todo"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-overrides_pseudo"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_mixedBP"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_verifier_fixable"/>
+    <fontcolor name="org-netbeans-spi-editor-hints-parser_annotation_err"/>
+    <fontcolor bgColor="ffbde6aa" name="Dbx_Bpt_hit_broken"/>
+    <fontcolor bgColor="ffdcdcd8" name="CondBreakpoint_broken"/>
+    <fontcolor name="org-netbeans-modules-editor-annotations-implements-has-implementations-combined"/>
+    <fontcolor bgColor="ffd1ffbc" name="CurrentExpression"/>
+    <fontcolor bgColor="fffc9d9f" name="CurrentPC2_BP"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_BP_stroke"/>
+    <fontcolor name="org-netbeans-modules-mercurial-remote-Annotation"/>
+    <fontcolor name="PHPWarning" waveUnderlined="ffc0c000"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-is_specialized"/>
+    <fontcolor bgColor="ffdcdcd8" name="debugger-multi_BPCBP_broken"/>
+    <fontcolor bgColor="ffdcdcd8" name="DisabledCondBreakpoint_stroke"/>
+    <fontcolor bgColor="ffbde6aa" name="debugger-PC_BP"/>
+    <fontcolor name="org-netbeans-modules-web-beans-annotations-decorated-bean"/>
+    <fontcolor bgColor="ffdcdcd8" name="Breakpoint_stroke"/>
+    <fontcolor name="org-netbeans-modules-cnd-highligh-semantic-markoccurrences"/>
+    <fontcolor name="ClassBreakpoint"/>
+    <fontcolor bgColor="ffbde6aa" name="OtherThread_PC_BP"/>
+    <fontcolor name="org-netbeans-modules-cnd-highlight-security-warning"/>
+    <fontcolor name="DisabledClassBreakpoint_stroke"/>
+    <fontcolor bgColor="ffdcdcd8" name="Dbx_Bpt_broken_dis"/>
+    <fontcolor bgColor="ffe9ffe6" name="CurrentExpressionLine"/>
+    <fontcolor name="org-netbeans-modules-cnd-navigation-is_overridden"/>
+    <fontcolor bgColor="ffbde6aa" name="CurrentPCLinePart"/>
+</fontscolors>
