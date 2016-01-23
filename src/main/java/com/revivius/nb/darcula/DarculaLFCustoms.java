@@ -372,27 +372,22 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.core.ui.balloon.mouseOverGradientFinishColor", new Color(92, 92, 66).brighter(),
                 
             // git
-            "nb.versioning.added.color", new Color(98, 151, 85),
-            "nb.versioning.modified.color", new Color(104, 151, 187),
-            "nb.versioning.deleted.color", new Color(108, 108, 108),
-            "nb.versioning.conflicted.color", new Color(213, 117, 108),
-            "nb.versioning.ignored.color", new Color(132, 133, 4),
-            "nb.versioning.textannotation.color", new Color(153, 153, 153),
+            "nb.versioning.added.color", new Color(73, 210, 73),
+            "nb.versioning.modified.color", new Color(26, 184, 255),
+            "nb.versioning.deleted.color", new Color(255, 175, 175),
+            "nb.versioning.conflicted.color", new Color(255, 100, 100),
+            "nb.versioning.ignored.color", new Color(142, 142, 142),
+            "nb.versioning.textannotation.color", Color.WHITE,
             
             // diff
-            "nb.diff.added.color", new Color(41, 68, 54),
-            "nb.diff.changed.color", new Color(56, 85, 112),
-            "nb.diff.deleted.color", new Color(72, 74, 74),
+            "nb.diff.added.color", new Color(43, 85, 43),
+            "nb.diff.changed.color", new Color(40, 85, 112),
+            "nb.diff.deleted.color", new Color(85, 43, 43),
             "nb.diff.applied.color", new Color(68, 113, 82),
             "nb.diff.notapplied.color", new Color(67, 105, 141),
-            "nb.diff.unresolved.color", new Color(69, 48, 43),
-            "nb.diff.sidebar.deleted.color", new Color(43, 43, 43),
-            "nb.diff.sidebar.changed.color", new Color(43, 43, 43),
-            
-            // terminal
-            "nb.output.foreground", new Color(60, 60, 60),
-            "nb.output.backgorund", new Color(242, 241, 240),
-            "textHighlight", new Color(240, 119, 70),
+            "nb.diff.unresolved.color", new Color(130, 30, 30),
+            "nb.diff.sidebar.deleted.color", new Color(85, 43, 43),
+            "nb.diff.sidebar.changed.color", new Color(30, 75, 112),
             
             // output
             "nb.output.backgorund", new Color(43, 43, 43),
@@ -404,9 +399,8 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.output.warning.foreground", new Color(205, 205, 0),
             "nb.output.failure.foreground", new Color(255, 107, 104),
             "nb.output.success.foreground", new Color(112, 255, 112),
-            "nb.output.debug.foreground", new Color(108, 218, 218)
-            
-            
+            "nb.output.debug.foreground", new Color(145, 145, 145),
+            "textHighlight", new Color(240, 119, 70),
         
         };
 

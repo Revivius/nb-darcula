@@ -2,6 +2,7 @@ package com.revivius.nb.darcula;
 
 import com.bulenkov.darcula.DarculaLaf;
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
@@ -95,6 +96,14 @@ public class Installer extends ModuleInstall {
             Object colorModel = classz.newInstance();
             Method method = classz.getDeclaredMethod("setCurrentProfile", String.class);
             method.invoke(colorModel, DarculaLaf.NAME);
+
+            // method call above changes the token colors but not annotation
+            // colors. these two seems to solve the problem
+            method = classz.getDeclaredMethod("getAnnotations", String.class);
+            Object acs = method.invoke(colorModel, DarculaLaf.NAME);
+
+            method = classz.getDeclaredMethod("setAnnotations", String.class, Collection.class);
+            method.invoke(colorModel, DarculaLaf.NAME, acs);
         } catch (Exception ex) {
             //ignore
             Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot change editors colors profile.", ex);

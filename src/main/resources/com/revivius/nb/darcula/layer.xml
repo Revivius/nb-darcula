@@ -23,7 +23,7 @@
                 <folder name="FontsColors">
                     <folder name="Darcula">
                         <folder name="Defaults">
-                            <file name="org-netbeans-modules-editor-java-token-colorings.xml" url="Editors/text/x-java/FontsColors/Darcula/tokenColorings.xml"/>
+                            <file name="org-netbeans-modules-editor-java-token-colorings.xml" url="Editors/text/css/FontsColors/Darcula/tokenColorings.xml"/>
                         </folder>
                     </folder>                
                 </folder>
