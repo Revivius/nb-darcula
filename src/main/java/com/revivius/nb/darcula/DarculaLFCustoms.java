@@ -279,9 +279,9 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.quicksearch.border", BorderFactory.createEmptyBorder(),
             
             // progress ui
-            "nb.progress.cancel.icon", ImageUtilities.loadImage("org/openide/awt/resources/metal_close_rollover_dark.png", false),
-            "nb.progress.cancel.icon.mouseover", ImageUtilities.loadImage("org/openide/awt/resources/metal_close_pressed_dark.png", false),
-            "nb.progress.cancel.icon.pressed", ImageUtilities.loadImage("org/openide/awt/resources/metal_close_pressed_dark.png", false),
+            "nb.progress.cancel.icon", ImageUtilities.loadImage("org/openide/awt/resources/mac_close_rollover_dark.png", false),
+            "nb.progress.cancel.icon.mouseover", ImageUtilities.loadImage("org/openide/awt/resources/mac_close_enabled_dark.png", false),
+            "nb.progress.cancel.icon.pressed", ImageUtilities.loadImage("org/openide/awt/resources/mac_close_pressed_dark.png", false),
             
             // explorer views
             "nb.explorer.unfocusedSelBg", new Color(13, 41, 62),
