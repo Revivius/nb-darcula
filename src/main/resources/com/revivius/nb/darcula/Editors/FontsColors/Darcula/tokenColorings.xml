@@ -9,7 +9,7 @@
     <fontcolor default="keyword" foreColor="ffe8bf6a" name="markup-element"/>
     <fontcolor default="string" foreColor="ffa5c261" name="markup-attribute-value"/>
     <fontcolor name="error" waveUnderlined="ff9e2927"/>
-    <fontcolor default="default" foreColor="black" name="entity-reference"/>
+    <fontcolor default="default" name="entity-reference"/>
     <fontcolor foreColor="ffa9b7c6" name="separator"/>
     <fontcolor foreColor="ffa9b7c6" name="operator"/>
     <fontcolor foreColor="ff287bde" name="url" underline="ff287bde"/>

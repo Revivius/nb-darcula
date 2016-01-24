@@ -16,5 +16,5 @@
     <fontcolor default="comment" name="xml-comment"/>
     <fontcolor default="markup-attribute" name="xml-attribute"/>
     <fontcolor default="whitespace" name="xml-EOL"/>
-    <fontcolor default="default" foreColor="ffe8bf6a" name="xml-pi-content"/>
+    <fontcolor default="default" foreColor="ff00007c" name="xml-pi-content"/>
 </fontscolors>

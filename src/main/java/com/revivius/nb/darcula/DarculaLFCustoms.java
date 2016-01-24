@@ -371,7 +371,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.core.ui.balloon.mouseOverGradientStartColor", new Color(92, 92, 66),
             "nb.core.ui.balloon.mouseOverGradientFinishColor", new Color(92, 92, 66).brighter(),
                 
-            // git
+            // versioning
             "nb.versioning.added.color", new Color(98, 151, 85),
             "nb.versioning.modified.color", new Color(104, 151, 187),
             "nb.versioning.deleted.color", new Color(108, 108, 108),
@@ -405,9 +405,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.output.failure.foreground", new Color(255, 107, 104),
             "nb.output.success.foreground", new Color(112, 255, 112),
             "nb.output.debug.foreground", new Color(108, 218, 218)
-            
-            
-        
+
         };
 
         return result;
