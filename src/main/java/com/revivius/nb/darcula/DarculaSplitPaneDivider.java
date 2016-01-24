@@ -15,6 +15,11 @@ import com.bulenkov.iconloader.util.DoubleColor;
 import com.bulenkov.iconloader.util.Gray;
 import com.bulenkov.iconloader.util.UIUtil;
 
+/**
+ * Thanks to hudsonb: https://github.com/bulenkov/Darcula/pull/5
+ *
+ * @author Revivius
+ */
 public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
   private Icon splitGlueV = IconLoader.findIcon("/com/bulenkov/darcula/icons/splitGlueV.png", DarculaSplitPaneDivider.class, true);
   private Icon splitGlueH = IconLoader.findIcon("/com/bulenkov/darcula/icons/splitGlueH.png", DarculaSplitPaneDivider.class, true);
