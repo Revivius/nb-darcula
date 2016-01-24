@@ -88,13 +88,13 @@
        
         <!-- For NbPreferences and Lookup -->
         <dependency>
-            <artifactId>org-openide-util-lookup</artifactId>
             <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util-lookup</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
-            <artifactId>org-openide-util</artifactId>
             <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
         <dependency>
@@ -128,6 +128,11 @@
             <artifactId>org-netbeans-core-multiview</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-windows</artifactId>
+            <version>${netbeans.version}</version>
+        </dependency>
     </dependencies>
     
     <properties>
@@ -136,9 +141,9 @@
     </properties>
     <description>&lt;h1&gt;Darcula LAF for NetBeans&lt;/h1&gt;
 
-A NetBeans Look And Feel plugin using Darcula theme from IntelliJ Idea.
+        A NetBeans Look And Feel plugin using Darcula theme from IntelliJ Idea.
 
-Wraps Darcula LAF from:  &lt;a href="https://github.com/bulenkov/Darcula"&gt;https://github.com/bulenkov/Darcula&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original LAF.&lt;/b&gt;
+        Wraps Darcula LAF from:  &lt;a href="https://github.com/bulenkov/Darcula"&gt;https://github.com/bulenkov/Darcula&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original LAF.&lt;/b&gt;
 
 &lt;h2&gt;Change Log&lt;/h2&gt;
 
