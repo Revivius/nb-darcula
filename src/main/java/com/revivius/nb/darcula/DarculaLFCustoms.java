@@ -228,7 +228,8 @@ public class DarculaLFCustoms extends LFCustoms {
 
         replaceSearchNotFoundColor();
         replaceGlyphGutterLineColor();
-        
+        replaceFormDesignerGapBorderColors();
+
         replaceLFCustomsTextFgColors();
         
         return result;
@@ -336,9 +337,9 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.dataview.jxdatetimepicker.todayPanel.linkForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "TableHeader.foreground"),
             
             // form designer
-            "nb.formdesigner.gap.fixed.color", new Color(112, 112, 112),
-            "nb.formdesigner.gap.resizing.color", new Color(116, 116, 116),
-            "nb.formdesigner.gap.min.color", new Color(104, 104, 104),
+            "nb.formdesigner.gap.fixed.color", new Color(70, 73, 75),
+            "nb.formdesigner.gap.resizing.color", new Color(66, 69, 71),
+            "nb.formdesigner.gap.min.color", new Color(78, 81, 83),
             
             // link
             "nb.html.link.foreground", new Color(125, 160, 225), //NOI18N
@@ -499,6 +500,18 @@ public class DarculaLFCustoms extends LFCustoms {
     }
     
     /**
+     * GAP_BORDER_COLOR and SAW_COLOR are hardcoded, should be taken from UIManager.
+     * Use reflection as in DefaultOutlineCellRenderer. 
+     */
+    private static final String FORMDESIGNER_LAYOUT_PAINTER_CLASS = "org.netbeans.modules.form.layoutdesign.LayoutPainter";
+    private static final String GAP_BORDER_COLOR_FIELD = "gapBorderColor";
+    private static final String SAW_COLOR_FIELD = "sawColor";
+    private void replaceFormDesignerGapBorderColors() {
+        replaceFieldValue(FORMDESIGNER_LAYOUT_PAINTER_CLASS, GAP_BORDER_COLOR_FIELD, new Color(49, 53, 54));
+        replaceFieldValue(FORMDESIGNER_LAYOUT_PAINTER_CLASS, SAW_COLOR_FIELD, new Color(49, 53, 54));
+    }
+
+    /**
      * LFCustoms.getTextFgColor() && LFCustoms.getTextFgColorHTML() uses
      * windowText. DarculaLaf does not override windowText which is initialized
      * to Color.BLACK by BasicLookAndFeel (DarculaLaf uses BasicLookAndFeel
@@ -510,6 +523,8 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_FIELD, new Color(187, 187, 187));
         replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_HTML_FIELD, "<font color=#bbbbbb>");
     }
+    
+    
 
     private void replaceFieldValue(String className, String fieldName, Color value) {
 
