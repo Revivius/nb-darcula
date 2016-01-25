@@ -17,7 +17,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
-import javax.swing.plaf.basic.BasicLabelUI;
+import javax.swing.plaf.metal.MetalLabelUI;
 import org.netbeans.swing.plaf.LFCustoms;
 
 /**
@@ -27,7 +27,7 @@ import org.netbeans.swing.plaf.LFCustoms;
  *
  * @author Revivius
  */
-public class OptionsAwareLabelUI extends BasicLabelUI {
+public class OptionsAwareLabelUI extends MetalLabelUI {
 
     private static final String OPTIONS_PANEL_NAME = "org.netbeans.modules.options.OptionsPanel";
 
@@ -37,7 +37,7 @@ public class OptionsAwareLabelUI extends BasicLabelUI {
         if (c.getClass().getName().startsWith(OPTIONS_PANEL_NAME)) {
             return new OptionsAwareLabelUI();
         }
-        return BasicLabelUI.createUI(c);
+        return MetalLabelUI.createUI(c);
     }
 
     private static final Color oldHighlighted = new Color(224, 232, 246);
@@ -60,7 +60,7 @@ public class OptionsAwareLabelUI extends BasicLabelUI {
         if (bgReplaced) {
             return;
         }
-        
+
         // In NB 8.1 CategoryButtons are in a JScrollPane
         Container parent = SwingUtilities.getAncestorOfClass(JScrollPane.class, c);
         if (parent == null) {
