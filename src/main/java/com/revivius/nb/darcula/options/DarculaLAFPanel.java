@@ -59,6 +59,7 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
         lblFontName = new javax.swing.JTextField();
         lblFont = new javax.swing.JLabel();
         btnChooseFont = new javax.swing.JButton();
+        cbInvertIcons = new javax.swing.JCheckBox();
 
         org.openide.awt.Mnemonics.setLocalizedText(cbOverride, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbOverride.text")); // NOI18N
         cbOverride.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -82,6 +83,13 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(cbInvertIcons, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbInvertIcons.text")); // NOI18N
+        cbInvertIcons.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbInvertIconsItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,7 +107,10 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnChooseFont)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRestart)))
+                        .addComponent(lblRestart))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cbInvertIcons)))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -113,7 +124,9 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
                     .addComponent(lblFont)
                     .addComponent(lblRestart)
                     .addComponent(btnChooseFont))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbInvertIcons)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,13 +155,19 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnChooseFontActionPerformed
 
+    private void cbInvertIconsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbInvertIconsItemStateChanged
+        controller.changed();
+    }//GEN-LAST:event_cbInvertIconsItemStateChanged
+
     void load() {
+        cbInvertIcons.setSelected(NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("invertIcons", false));
         cbOverride.setSelected(NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("overrideFont", false));
         lblFontName.setText(NbPreferences.forModule(DarculaLAFPanel.class).get("font", DarculaLFCustoms.DEFAULT_FONT));
         reinitUI();
     }
 
     void store() {
+        NbPreferences.forModule(DarculaLAFPanel.class).putBoolean("invertIcons", cbInvertIcons.isSelected());
         NbPreferences.forModule(DarculaLAFPanel.class).putBoolean("overrideFont", cbOverride.isSelected());
         NbPreferences.forModule(DarculaLAFPanel.class).put("font", lblFontName.getText());
     }
@@ -160,6 +179,7 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChooseFont;
+    private javax.swing.JCheckBox cbInvertIcons;
     private javax.swing.JCheckBox cbOverride;
     private javax.swing.JLabel lblFont;
     private javax.swing.JTextField lblFontName;
