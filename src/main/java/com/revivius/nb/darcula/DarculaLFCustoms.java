@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -401,7 +402,9 @@ public class DarculaLFCustoms extends LFCustoms {
             "textHighlight", new Color(240, 119, 70),
         
         };
-
+        if (NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("invertIcons", false)) {
+            result = appendToArray(result, "nb.imageicon.filter", new DarkIconFilter());
+        }
         return result;
     }
 
@@ -566,5 +569,12 @@ public class DarculaLFCustoms extends LFCustoms {
             Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex);
         }
     }
-    
+
+    private Object[] appendToArray(Object[] result, final String key, final Object value) {
+        result = Arrays.copyOf(result, result.length + 2);
+        result[result.length - 2] = key;
+        result[result.length - 1] = value;
+        return result;
+    }
+
 }
