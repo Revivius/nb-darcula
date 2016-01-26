@@ -47,8 +47,6 @@ public class DarculaLFCustoms extends LFCustoms {
     private static final String TAB_SEL_BORDER = "tab_sel_border"; //NOI18N
     private static final String TAB_BORDER_INNER = "tab_border_inner"; //NOI18N      
 
-    static String CFS = CUSTOM_FONT_SIZE;
-
     @Override
     public Object[] createGuaranteedKeysAndValues() {
         // same color for DarculaMetalTheme getAcceleratorForeground()
@@ -98,9 +96,8 @@ public class DarculaLFCustoms extends LFCustoms {
         Color c = UIManager.getColor("Tree.selectionBackground");
         Color focusColor = new Color(c.getRed(), c.getGreen(), c.getBlue() + 1);
 
-        //XXX fetch the custom font size here instead
         Object[] result = {
-            //The assorted standard NetBeans metal font customizations
+            // The assorted standard NetBeans metal font customizations
             CONTROLFONT, controlFont,
             SYSTEMFONT, controlFont,
             USERFONT, controlFont,
@@ -116,11 +113,11 @@ public class DarculaLFCustoms extends LFCustoms {
             // Bug in JDK 1.5 thru b59 - pale blue is incorrectly returned for this
             "textInactiveText", Color.GRAY, //NOI18N
             // Work around a bug in windows which sets the text area font to
-            //"MonoSpaced", causing all accessible dialogs to have monospaced text
+            // "MonoSpaced", causing all accessible dialogs to have monospaced text
             "TextArea.font", new GuaranteedValue("Label.font", controlFont),
             
             /**
-             * Use calculate border color for HtmlLabelUI.
+             * Use calculateD border color for HtmlLabelUI.
              */
             "Tree.selectionBorderColor", focusColor,
             /**
@@ -410,10 +407,6 @@ public class DarculaLFCustoms extends LFCustoms {
 
     private class Windows8EditorColorings extends UIBootstrapValue.Lazy {
 
-        /**
-         *
-         * @param name
-         */
         public Windows8EditorColorings(String name) {
             super(name);
         }
@@ -477,8 +470,6 @@ public class DarculaLFCustoms extends LFCustoms {
         }
     }
 
-    
-    
     /**
      * NOT_FOUND color is hardcoded, should be taken from UIManager.
      * Use reflection as in DefaultOutlineCellRenderer. 
@@ -524,8 +515,6 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_HTML_FIELD, "<font color=#bbbbbb>");
     }
     
-    
-
     private void replaceFieldValue(String className, String fieldName, Color value) {
 
         Class<?> sbClass = null;
