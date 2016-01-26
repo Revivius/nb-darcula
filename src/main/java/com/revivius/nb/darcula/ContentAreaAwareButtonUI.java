@@ -5,22 +5,27 @@ import com.bulenkov.iconloader.util.GraphicsUtil;
 import com.bulenkov.iconloader.util.SystemInfo;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.FontMetrics;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Paint;
+import java.awt.Rectangle;
 import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.plaf.ComponentUI;
+import javax.swing.plaf.UIResource;
 import javax.swing.plaf.basic.BasicButtonUI;
+import sun.swing.SwingUtilities2;
 
 /**
- * A minor re-write of DarculaButtonUI to prevent painting background
- * when content area filled property is set to false on button.
- * 
+ * A minor re-write of DarculaButtonUI to prevent painting background when
+ * content area filled property is set to false on button.
+ *
  * Mostly copy paste from DarculaButtonUI.
  *
  * @author Revivius
@@ -48,7 +53,7 @@ public class ContentAreaAwareButtonUI extends BasicButtonUI {
         AbstractButton b = (AbstractButton) c;
         if ((c.isEnabled()) && (border != null)) {
             //if (!square) {
-                g2d.setPaint(getBackgroundPaint(c));
+            g2d.setPaint(getBackgroundPaint(c));
             //}
 
             if (b.isContentAreaFilled()) {
@@ -63,6 +68,33 @@ public class ContentAreaAwareButtonUI extends BasicButtonUI {
         super.paint(g, c);
         config.restore();
     }
+
+    protected void paintText(Graphics g, JComponent c, Rectangle textRect, String text) {
+        AbstractButton button = (AbstractButton) c;
+        ButtonModel model = button.getModel();
+        Color fg = button.getForeground();
+        if (((fg instanceof UIResource)) && ((button instanceof JButton)) && (((JButton) button).isDefaultButton())) {
+            Color selectedFg = UIManager.getColor("Button.darcula.selectedButtonForeground");
+            if (selectedFg != null) {
+                fg = selectedFg;
+            }
+        }
+        g.setColor(fg);
+
+        FontMetrics metrics = SwingUtilities2.getFontMetrics(c, g);
+        int mnemonicIndex = button.getDisplayedMnemonicIndex();
+        if (model.isEnabled()) {
+            SwingUtilities2.drawStringUnderlineCharAt(c, g, text, mnemonicIndex, textRect.x
+                    + getTextShiftOffset(), textRect.y + metrics
+                    .getAscent() + getTextShiftOffset());
+        } else {
+            g.setColor(UIManager.getColor("Button.disabledText"));
+            SwingUtilities2.drawStringUnderlineCharAt(c, g, text, -1, textRect.x
+                    + getTextShiftOffset(), textRect.y + metrics
+                    .getAscent() + getTextShiftOffset());
+        }
+    }
+    
 
     protected Paint getBackgroundPaint(JComponent c) {
         JButton b = (JButton) c;
