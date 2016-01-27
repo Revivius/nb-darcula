@@ -49,7 +49,7 @@ public final class DarculaLAFOptionsPanelController extends OptionsPanelControll
             NotificationDisplayer.getDefault().notify(
                     "Restart IDE",
                     ImageUtilities.loadImageIcon("com/revivius/nb/darcula/options/restart.png", true),
-                    "Click here to restart IDE and apply new font settings.",
+                    "Click here to restart IDE and apply new settings.",
                     new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
