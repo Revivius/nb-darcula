@@ -19,11 +19,29 @@ import com.revivius.nb.darcula.DarculaLFCustoms;
 import java.awt.Font;
 import java.beans.PropertyEditor;
 import java.beans.PropertyEditorManager;
+import java.util.prefs.Preferences;
+import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.util.NbPreferences;
 
-@org.netbeans.spi.options.OptionsPanelController.Keywords(location = "Appearance", tabTitle = "Darcula Look and Feel", keywords = {"dark theme", "dark", "theme", "laf", "font", "look and feel", "darcula"})
+@OptionsPanelController.Keywords(
+        location = "Appearance",
+        tabTitle = "Darcula Look and Feel",
+        keywords = { 
+            "dark theme",
+            "dark",
+            "theme",
+            "laf",
+            "font",
+            "look and feel",
+            "darcula",
+            "invert",
+            "invert colors",
+            "stretched",
+            "stretched tabs"
+        }
+)
 public class DarculaLAFPanel extends javax.swing.JPanel {
 
     private final DarculaLAFOptionsPanelController controller;
@@ -60,6 +78,7 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
         lblFont = new javax.swing.JLabel();
         btnChooseFont = new javax.swing.JButton();
         cbInvertIcons = new javax.swing.JCheckBox();
+        cbStretchedTabs = new javax.swing.JCheckBox();
 
         org.openide.awt.Mnemonics.setLocalizedText(cbOverride, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbOverride.text")); // NOI18N
         cbOverride.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -90,6 +109,13 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(cbStretchedTabs, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbStretchedTabs.text")); // NOI18N
+        cbStretchedTabs.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbStretchedTabsItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,7 +136,10 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
                         .addComponent(lblRestart))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(cbInvertIcons)))
+                        .addComponent(cbInvertIcons))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cbStretchedTabs)))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,7 +155,9 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
                     .addComponent(btnChooseFont))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbInvertIcons)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbStretchedTabs)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,17 +190,30 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
         controller.changed();
     }//GEN-LAST:event_cbInvertIconsItemStateChanged
 
+    private void cbStretchedTabsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbStretchedTabsItemStateChanged
+        controller.changed();
+    }//GEN-LAST:event_cbStretchedTabsItemStateChanged
+
     void load() {
-        cbInvertIcons.setSelected(NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("invertIcons", false));
-        cbOverride.setSelected(NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("overrideFont", false));
-        lblFontName.setText(NbPreferences.forModule(DarculaLAFPanel.class).get("font", DarculaLFCustoms.DEFAULT_FONT));
+        Preferences prefs = NbPreferences.forModule(DarculaLAFPanel.class);
+        
+        cbOverride.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, false));
+        lblFontName.setText(prefs.get(DarculaLAFOptionsPanelController.FONT_STRING, DarculaLFCustoms.DEFAULT_FONT));
+        
+        cbInvertIcons.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.INVERT_ICONS_BOOLEAN, false));
+        cbStretchedTabs.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.STRETCHED_TABS_BOOLEAN, false));
+
         reinitUI();
     }
 
     void store() {
-        NbPreferences.forModule(DarculaLAFPanel.class).putBoolean("invertIcons", cbInvertIcons.isSelected());
-        NbPreferences.forModule(DarculaLAFPanel.class).putBoolean("overrideFont", cbOverride.isSelected());
-        NbPreferences.forModule(DarculaLAFPanel.class).put("font", lblFontName.getText());
+        Preferences prefs = NbPreferences.forModule(DarculaLAFPanel.class);
+
+        prefs.putBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, cbOverride.isSelected());
+        prefs.put(DarculaLAFOptionsPanelController.FONT_STRING, lblFontName.getText());
+ 
+        prefs.putBoolean(DarculaLAFOptionsPanelController.INVERT_ICONS_BOOLEAN, cbInvertIcons.isSelected());
+        prefs.putBoolean(DarculaLAFOptionsPanelController.STRETCHED_TABS_BOOLEAN, cbStretchedTabs.isSelected());
     }
 
     boolean valid() {
@@ -181,6 +225,7 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnChooseFont;
     private javax.swing.JCheckBox cbInvertIcons;
     private javax.swing.JCheckBox cbOverride;
+    private javax.swing.JCheckBox cbStretchedTabs;
     private javax.swing.JLabel lblFont;
     private javax.swing.JTextField lblFontName;
     private javax.swing.JLabel lblRestart;

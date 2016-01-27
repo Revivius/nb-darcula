@@ -1,5 +1,6 @@
 package com.revivius.nb.darcula;
 
+import com.revivius.nb.darcula.options.DarculaLAFOptionsPanelController;
 import com.revivius.nb.darcula.options.DarculaLAFPanel;
 import java.awt.Color;
 import java.awt.Font;
@@ -9,6 +10,7 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.Preferences;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
@@ -70,11 +72,14 @@ public class DarculaLFCustoms extends LFCustoms {
     
     @Override
     public Object[] createLookAndFeelCustomizationKeysAndValues() {
- 
-        // stretch view tabs
-        System.setProperty("winsys.stretching_view_tabs", "true");
-        // stretching view tabs seems to be causing resize problems
-        System.setProperty("NB.WinSys.Splitter.Respect.MinimumSize.Enabled", "false");
+        Preferences prefs = NbPreferences.forModule(DarculaLAFPanel.class);
+        boolean useStretchedTabs = prefs.getBoolean(DarculaLAFOptionsPanelController.STRETCHED_TABS_BOOLEAN, false);
+        if (useStretchedTabs) {
+            // stretch view tabs
+            System.setProperty("winsys.stretching_view_tabs", "true");
+            // stretching view tabs seems to be causing resize problems
+            System.setProperty("NB.WinSys.Splitter.Respect.MinimumSize.Enabled", "false");
+        }
 
         Font controlFont = Font.decode(DEFAULT_FONT);
         Integer in = (Integer) UIManager.get(CUSTOM_FONT_SIZE); //NOI18N
@@ -82,11 +87,12 @@ public class DarculaLFCustoms extends LFCustoms {
             controlFont = Font.decode(FONT_DEFAULT_NAME + " " + in);
         }
 
-        boolean overrideFontOption = NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("overrideFont", false);
+        boolean overrideFontOption = prefs.getBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, false);
         if (overrideFontOption) {
-            String fontOption = NbPreferences.forModule(DarculaLAFPanel.class).get("font", DEFAULT_FONT);
+            String fontOption = prefs.get(DarculaLAFOptionsPanelController.FONT_STRING, DEFAULT_FONT);
             controlFont = Font.decode(fontOption);
         }
+
         /**
          * HtmlLabelUI sets the border color to BLUE for focused cells if
          * "Tree.selectionBorderColor" is same as background color (see lines

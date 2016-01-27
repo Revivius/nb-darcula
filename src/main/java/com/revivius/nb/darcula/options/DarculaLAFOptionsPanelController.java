@@ -43,6 +43,12 @@ import org.openide.util.NbPreferences;
 })
 public final class DarculaLAFOptionsPanelController extends OptionsPanelController {
 
+    
+    public static final String FONT_STRING = "font";
+    public static final String OVERRIDE_FONT_BOOLEAN = "overrideFont";
+    public static final String INVERT_ICONS_BOOLEAN = "invertIcons";
+    public static final String STRETCHED_TABS_BOOLEAN = "stretchedTabs";
+
     private static final PreferenceChangeListener PREF_LISTENER = new PreferenceChangeListener() {
         @Override
         public void preferenceChange(PreferenceChangeEvent evt) {
