@@ -26,6 +26,7 @@ import org.openide.util.NbPreferences;
  *
  * @author Revivius
  */
+
 public class DarculaLFCustoms extends LFCustoms {
 
     private static final String FONT_DEFAULT_NAME = "Dialog";
@@ -135,7 +136,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "text", new Color(60, 63, 65),
             "textText", new Color(187, 187, 187),
             "infoText", new Color(187, 187, 187),
-            "OptionPane.messageForeground", new Color(187, 187, 187),
             
             "LabelUI", "com.revivius.nb.darcula.OptionsAwareLabelUI",
             "ButtonUI", "com.revivius.nb.darcula.ContentAreaAwareButtonUI",
@@ -200,9 +200,16 @@ public class DarculaLFCustoms extends LFCustoms {
             "MenuBar.font", controlFont,
             "MenuItem.acceleratorFont", controlFont,
             "MenuItem.font", controlFont,
+
             "OptionPane.buttonFont", controlFont,
             "OptionPane.font", controlFont,
             "OptionPane.messageFont", controlFont,
+            "OptionPane.messageForeground", new Color(187, 187, 187),
+            "OptionPane.errorIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_error.png")),
+            "OptionPane.informationIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_info.png")),
+            "OptionPane.questionIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_question.png")),
+            "OptionPane.warningIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_warning.png")),
+
             "Panel.font", controlFont,
             "PasswordField.font", controlFont,
             "PopupMenu.font", controlFont,
@@ -224,7 +231,11 @@ public class DarculaLFCustoms extends LFCustoms {
             "TitledBorder.font", controlFont,
             "ToggleButton.font", controlFont,
             "ToolBar.font", controlFont,
+            
             "ToolTip.font", controlFont,
+            "ToolTip.border", BorderFactory.createLineBorder(new Color(154, 154, 102)),
+            "ToolTip.borderInactive", BorderFactory.createLineBorder(new Color(154, 154, 102)),
+            
             "Tree.font", controlFont,
             "Viewport.font", controlFont,
             
