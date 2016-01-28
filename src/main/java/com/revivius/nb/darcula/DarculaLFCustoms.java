@@ -320,7 +320,18 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.heapview.grid3.end", new Color(105, 103, 95),
             "nb.heapview.grid4.start", new Color(107, 105, 97),
             "nb.heapview.grid4.end", new Color(109, 107, 99),
-            
+
+            // bug tracking
+            "nb.bugtracking.comment.background", new Color(59, 63, 64),
+            "nb.bugtracking.comment.foreground", new Color(187, 187, 187),
+            "nb.bugtracking.label.highlight", new Color(205, 205, 0),
+            "nb.bugtracking.table.background", new Color(59, 63, 64),
+            "nb.bugtracking.table.background.alternate", new Color(69, 73, 74),
+            "nb.bugtracking.new.color", new Color(73, 210, 73),
+            "nb.bugtracking.modified.color", new Color(26, 184, 255),
+            "nb.bugtracking.obsolete.color", new Color(142, 142, 142),
+            "nb.bugtracking.conflict.color", new Color(255, 100, 100),
+
             // db.dataview
             "nb.dataview.table.gridbackground", UIManager.getColor("Table.gridColor"),
             "nb.dataview.table.background", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
