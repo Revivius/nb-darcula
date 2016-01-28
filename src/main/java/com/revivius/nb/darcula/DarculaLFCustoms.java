@@ -405,7 +405,8 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.versioning.conflicted.color", new Color(255, 100, 100),
             "nb.versioning.ignored.color", new Color(142, 142, 142),
             "nb.versioning.textannotation.color", Color.WHITE,
-            
+            "nb.versioning.tooltip.background.color", new Color(92, 92, 66),
+
             // diff
             "nb.diff.added.color", new Color(43, 85, 43),
             "nb.diff.changed.color", new Color(40, 85, 112),
