@@ -21,8 +21,8 @@ import javax.swing.plaf.metal.MetalLabelUI;
 import org.netbeans.swing.plaf.LFCustoms;
 
 /**
- * Many thanks to Neil C. Smith of Praxis-Life. This trick is mostly
- * based on his excellent blog article:
+ * Many thanks to Neil C. Smith of Praxis-Life. This trick is mostly based on
+ * his excellent blog article:
  * https://praxisintermedia.wordpress.com/2011/09/29/the-dark-arts-of-netbeans-hackery/
  *
  * @author Revivius

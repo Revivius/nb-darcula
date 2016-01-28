@@ -2,6 +2,7 @@ package com.revivius.nb.darcula;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 /** 
  * ------------------------------------------------------------
@@ -53,10 +54,11 @@ public class GuaranteedValue implements UIDefaults.LazyValue {
     public GuaranteedValue(String[] keys, Object fallback) {
         //Be fail fast, so no random exceptions from random components later
         if (keys == null || fallback == null) {
-            throw new NullPointerException ("Null parameters: " + keys + ',' + fallback);
+            throw new NullPointerException ("Null parameters: " + 
+                    Arrays.toString(keys) + ',' + fallback);
         }
-        for (int i=0; i < keys.length; i++) {
-            value = UIManager.get(keys[i]);
+        for (String key : keys) {
+            value = UIManager.get(key);
             if (value != null) {
                 break;
             }
@@ -66,6 +68,7 @@ public class GuaranteedValue implements UIDefaults.LazyValue {
         }
     }
     
+    @Override
     public Object createValue(UIDefaults table) {
         return value;
     }

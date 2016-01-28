@@ -16,7 +16,7 @@ import javax.swing.plaf.UIResource;
 
 /**
  * A minor re-write of DarculaButtonPainter to reduce border insets.
- * 
+ *
  * Mostly copy paste from DarculaButtonPainter.
  *
  * @author Revivius
@@ -38,7 +38,7 @@ public class ReducedInsetsDarculaButtonPainter implements Border, UIResource {
                     width / 2, height, Gray._90.withAlpha(90)));
 
             g2d.setPaint(Gray._100.withAlpha(180));
-            
+
             int arc = 5;
             if (square) {
                 arc = 3;

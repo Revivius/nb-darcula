@@ -46,6 +46,7 @@ public class UIBootstrapValue implements UIDefaults.LazyValue {
      * the UI class we're representing requires have not yet been installed,
      * this will install them.
      */
+    @Override
     public Object createValue(UIDefaults uidefaults) {
         if (!installed) {
             installKeysAndValues(uidefaults);
@@ -74,6 +75,7 @@ public class UIBootstrapValue implements UIDefaults.LazyValue {
         defaults = null;
     }
 
+    @Override
     public String toString() {
         return getClass() + " for " + uiClassName; //NOI18N
     }
@@ -86,11 +88,12 @@ public class UIBootstrapValue implements UIDefaults.LazyValue {
     }
     
     private class Meta implements UIDefaults.LazyValue {
-        private String name;
+        private final String name;
         public Meta (String uiClassName) {
             this.name = uiClassName;
         }
         
+        @Override
         public Object createValue(javax.swing.UIDefaults uidefaults) {
             if (!installed) {
                 installKeysAndValues(uidefaults);
@@ -98,6 +101,7 @@ public class UIBootstrapValue implements UIDefaults.LazyValue {
             return name;
         }
 
+        @Override
         public String toString() {
             return "Meta-" + super.toString() + " for " + uiClassName; //NOI18N
         }
@@ -108,6 +112,7 @@ public class UIBootstrapValue implements UIDefaults.LazyValue {
             super (uiClassName, null);
         }
 
+        @Override
         public Object[] getKeysAndValues() {
             if (defaults == null) {
                 defaults = createKeysAndValues();
