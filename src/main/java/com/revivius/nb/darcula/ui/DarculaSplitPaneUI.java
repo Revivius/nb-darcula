@@ -1,4 +1,4 @@
-package com.revivius.nb.darcula;
+package com.revivius.nb.darcula.ui;
 
 import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;

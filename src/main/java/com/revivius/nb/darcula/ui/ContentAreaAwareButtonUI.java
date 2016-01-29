@@ -1,4 +1,4 @@
-package com.revivius.nb.darcula;
+package com.revivius.nb.darcula.ui;
 
 import com.bulenkov.iconloader.util.GraphicsConfig;
 import com.bulenkov.iconloader.util.GraphicsUtil;

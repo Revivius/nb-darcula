@@ -1,4 +1,4 @@
-package com.revivius.nb.darcula;
+package com.revivius.nb.darcula.ui;
 
 import com.bulenkov.darcula.DarculaTableHeaderBorder;
 import java.awt.Component;
@@ -12,6 +12,6 @@ public class InreasedInsetsTableHeaderBorder extends DarculaTableHeaderBorder {
 
     @Override
     public Insets getBorderInsets(Component c) {
-        return new Insets(2, 2, 2, 2);
+        return new Insets(1, 2, 1, 2);
     }
 }

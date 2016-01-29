@@ -1,5 +1,7 @@
 package com.revivius.nb.darcula;
 
+import com.revivius.nb.darcula.ui.InreasedInsetsTableHeaderBorder;
+import com.revivius.nb.darcula.ui.ReducedInsetsDarculaButtonPainter;
 import com.revivius.nb.darcula.options.DarculaLAFOptionsPanelController;
 import com.revivius.nb.darcula.options.DarculaLAFPanel;
 import java.awt.Color;
@@ -137,15 +139,17 @@ public class DarculaLFCustoms extends LFCustoms {
             "textText", new Color(187, 187, 187),
             "infoText", new Color(187, 187, 187),
             
-            "LabelUI", "com.revivius.nb.darcula.OptionsAwareLabelUI",
-            "ButtonUI", "com.revivius.nb.darcula.ContentAreaAwareButtonUI",
+            "LabelUI", "com.revivius.nb.darcula.ui.OptionsAwareLabelUI",
+            "ButtonUI", "com.revivius.nb.darcula.ui.ContentAreaAwareButtonUI",
             "Button.border", new ReducedInsetsDarculaButtonPainter(),
-            "ToggleButtonUI", "com.revivius.nb.darcula.ContentAreaAwareToggleButtonUI",
+            "ToggleButtonUI", "com.revivius.nb.darcula.ui.ContentAreaAwareToggleButtonUI",
             "ToggleButton.border", new ReducedInsetsDarculaButtonPainter(),
             
-            "ToolBarUI", "com.revivius.nb.darcula.RolloverToolBarUI",
-            "SplitPaneUI", "com.revivius.nb.darcula.DarculaSplitPaneUI",
-            
+            "ToolBarUI", "com.revivius.nb.darcula.ui.RolloverToolBarUI",
+            "SplitPaneUI", "com.revivius.nb.darcula.ui.DarculaSplitPaneUI",
+            // #36
+            "SpinnerUI", "com.revivius.nb.darcula.ui.SafeDarculaSpinnerUI",
+
             "Table.background", new Color(69, 73, 74),
             "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
             "Table.ascendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-asc.png")),
@@ -565,15 +569,18 @@ public class DarculaLFCustoms extends LFCustoms {
                         sbClass = systemClassLoader.loadClass(className);
                     }
                 } catch (ClassNotFoundException ex2) {
-                    Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex2);
+                    Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
+                            "Can not find class, will not be able to replace its field...", ex2);
                 }
             }
         } catch (SecurityException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex);
+            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
+                    "Can not find class, will not be able to replace its field...", ex);
         } catch (IllegalArgumentException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex);
+            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
+                    "Can not find class, will not be able to replace its field...", ex);
         }
-        
+
         if (sbClass == null) {
             return;
         }
@@ -593,11 +600,14 @@ public class DarculaLFCustoms extends LFCustoms {
 
             field.set(null, value);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex);
+            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
+                    "Can not replace field...", ex);
         } catch (NoSuchFieldException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex);
+            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
+                    "Can not replace field...", ex);
         } catch (SecurityException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.WARNING, null, ex);
+            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
+                    "Can not replace field...", ex);
         }
     }
 

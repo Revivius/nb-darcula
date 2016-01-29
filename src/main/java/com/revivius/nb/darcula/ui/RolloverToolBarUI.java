@@ -1,4 +1,4 @@
-package com.revivius.nb.darcula;
+package com.revivius.nb.darcula.ui;
 
 import java.awt.Color;
 import java.awt.Component;

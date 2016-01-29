@@ -1,4 +1,4 @@
-package com.revivius.nb.darcula;
+package com.revivius.nb.darcula.ui;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
