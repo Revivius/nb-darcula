@@ -10,14 +10,14 @@
     <fontcolor default="identifier" name="mod-interface-declaration">
         <font style="bold"/>
     </fontcolor>
-    <fontcolor default="method" name="mod-method-declaration"/>
+    <fontcolor default="method" foreColor="ffffc66d" name="mod-method-declaration"/>
     <fontcolor default="operator" name="operator"/>
     <fontcolor default="keyword" name="keyword-directive"/>
     <fontcolor default="keyword" name="literal"/>
     <fontcolor default="number" name="number"/>
     <fontcolor default="char" name="character"/>
     <fontcolor default="identifier" name="mod-parameter"/>
-    <fontcolor name="mod-deprecated" strikeThrough="black"/>
+    <fontcolor name="mod-deprecated" strikeThrough="ffc3c3c3"/>
     <fontcolor default="identifier" name="mod-annotation-type"/>
     <fontcolor default="comment" name="javadoc-first-sentence"/>
     <fontcolor default="string" foreColor="ffcc7832" name="string-escape"/>
