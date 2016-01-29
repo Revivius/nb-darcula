@@ -235,6 +235,8 @@ public class DarculaLFCustoms extends LFCustoms {
             "ToolTip.font", controlFont,
             "ToolTip.border", BorderFactory.createLineBorder(new Color(154, 154, 102)),
             "ToolTip.borderInactive", BorderFactory.createLineBorder(new Color(154, 154, 102)),
+            "ToolTip.foregroundInactive", new Color(187, 187, 187),
+            "ToolTip.backgroundInactive", new Color(92, 92, 66),
             
             "Tree.font", controlFont,
             "Viewport.font", controlFont,
