@@ -252,7 +252,8 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceFormDesignerGapBorderColors();
 
         replaceLFCustomsTextFgColors();
-        
+        replaceCompletionColors();
+
         return result;
     }
 
@@ -552,8 +553,42 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_FIELD, new Color(187, 187, 187));
         replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_HTML_FIELD, "<font color=#bbbbbb>");
     }
-    
-    private void replaceFieldValue(String className, String fieldName, Color value) {
+
+    /**
+     * #21, #26
+     * fixes code completion colors for all languages (at least for those extending GsfCompletionItem)
+     */
+    private static final String GSF_COMPLETION_FORMATTER_CLASS = "org.netbeans.modules.csl.editor.completion.GsfCompletionItem$CompletionFormatter";
+    private static final String PARAMETER_NAME_COLOR_FIELD = "PARAMETER_NAME_COLOR"; //getHTMLColor(160, 96, 1);
+    private static final String CLASS_COLOR_FIELD = "CLASS_COLOR"; // getHTMLColor(86, 0, 0);
+    private static final String PKG_COLOR_FIELD = "PKG_COLOR"; // getHTMLColor(128, 128, 128);
+    private static final String KEYWORD_COLOR_FIELD = "KEYWORD_COLOR"; //getHTMLColor(0, 0, 153);
+    private static final String FIELD_COLOR_FIELD = "FIELD_COLOR"; // getHTMLColor(0, 134, 24);
+    private static final String VARIABLE_COLOR_FIELD = "VARIABLE_COLOR"; // getHTMLColor(0, 0, 124);
+    private static final String CONSTRUCTOR_COLOR_FIELD = "CONSTRUCTOR_COLOR"; // getHTMLColor(178, 139, 0);
+    private static final String INTERFACE_COLOR_FIELD = "INTERFACE_COLOR"; // getHTMLColor(64, 64, 64);
+    private static final String PARAMETERS_COLOR_FIELD = "PARAMETERS_COLOR"; // getHTMLColor(128, 128, 128);
+    private void replaceCompletionColors() {
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, PARAMETER_NAME_COLOR_FIELD, getHTMLColor(new Color(255, 198, 109)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, CLASS_COLOR_FIELD, getHTMLColor(new Color(214, 128, 128)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, PKG_COLOR_FIELD, getHTMLColor(new Color(128, 214, 128)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, KEYWORD_COLOR_FIELD, getHTMLColor(new Color(180, 180, 255)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, FIELD_COLOR_FIELD, getHTMLColor(new Color(0, 134, 24)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, VARIABLE_COLOR_FIELD, getHTMLColor(new Color(0, 192, 255)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, CONSTRUCTOR_COLOR_FIELD, getHTMLColor(new Color(178, 139, 0)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, INTERFACE_COLOR_FIELD, getHTMLColor(new Color(214, 128, 128)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, PARAMETERS_COLOR_FIELD, getHTMLColor(new Color(64, 128, 64)));
+    }
+
+    private static String getHTMLColor(Color c) {
+        return "<font color=#" //NOI18N
+                + LFCustoms.getHexString(c.getRed())
+                + LFCustoms.getHexString(c.getGreen())
+                + LFCustoms.getHexString(c.getBlue())
+                + ">"; //NOI18N
+    }
+
+    private void replaceFieldValue(String className, String fieldName, Object value) {
 
         Class<?> sbClass = null;
         try {
