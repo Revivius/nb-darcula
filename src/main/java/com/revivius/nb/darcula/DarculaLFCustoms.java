@@ -7,6 +7,7 @@ import com.revivius.nb.darcula.options.DarculaLAFPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
@@ -15,6 +16,8 @@ import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.InputMap;
+import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ColorUIResource;
@@ -244,8 +247,9 @@ public class DarculaLFCustoms extends LFCustoms {
             
             "Tree.font", controlFont,
             "Viewport.font", controlFont,
-            
         };
+
+        removeEnterFromTreeInputMap();
 
         replaceSearchNotFoundColor();
         replaceGlyphGutterLineColor();
@@ -438,9 +442,9 @@ public class DarculaLFCustoms extends LFCustoms {
             "textHighlight", new Color(240, 119, 70),
         
         };
-        if (NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("invertIcons", false)) {
-            result = appendToArray(result, "nb.imageicon.filter", new DarkIconFilter());
-        }
+        
+        result = maybeEnableIconFilter(result);
+
         return result;
     }
 
@@ -506,6 +510,36 @@ public class DarculaLFCustoms extends LFCustoms {
                 PROPSHEET_SELECTED_SET_FOREGROUND, Color.WHITE,
                 PROPSHEET_DISABLED_FOREGROUND, new Color(161, 161, 146),
                 PROPSHEET_BUTTON_FOREGROUND, new Color(187, 187, 187),};
+        }
+    }
+
+    /**
+     * Enables invert filter for icons if user requested. 
+     */
+    private Object[] maybeEnableIconFilter(Object[] defaults) {
+        if (NbPreferences.forModule(DarculaLAFPanel.class).getBoolean("invertIcons", false)) {
+            return appendToArray(defaults, "nb.imageicon.filter", new DarkIconFilter());
+        }
+        return defaults;
+    }
+
+    private Object[] appendToArray(Object[] result, final String key, final Object value) {
+        result = Arrays.copyOf(result, result.length + 2);
+        result[result.length - 2] = key;
+        result[result.length - 1] = value;
+        return result;
+    }
+
+    /**
+     * DarculaLaf:L354-L358 registers ENTER to invoke 'toggle' action. This seems
+     * to cause problems as reported in #14 because enter key can not invoke
+     * default button in dialogs.
+     */
+    private void removeEnterFromTreeInputMap() {
+        // Make ENTER work in JTrees
+        InputMap treeInputMap = (InputMap) UIManager.get("Tree.focusInputMap");
+        if (treeInputMap != null) { // it's really possible. For example,  GTK+ doesn't have such map
+            treeInputMap.remove(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
         }
     }
 
@@ -645,12 +679,5 @@ public class DarculaLFCustoms extends LFCustoms {
                     "Can not replace field...", ex);
         }
     }
-
-    private Object[] appendToArray(Object[] result, final String key, final Object value) {
-        result = Arrays.copyOf(result, result.length + 2);
-        result[result.length - 2] = key;
-        result[result.length - 1] = value;
-        return result;
-    }
-
+    
 }
