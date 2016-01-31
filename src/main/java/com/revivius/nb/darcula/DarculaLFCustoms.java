@@ -165,7 +165,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "Menu.acceleratorFont", controlFont,
             "Menu.font", controlFont,
 
-            "Table.background", new Color(69, 73, 74), // Use default Darcula Color
             "Table.font", controlFont,
             "Table.ascendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-asc.png")),
             "Table.descendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-desc.png")),
@@ -182,11 +181,9 @@ public class DarculaLFCustoms extends LFCustoms {
             
             LISTFONT, controlFont,
             "List.font", controlFont,
-            "List.background", new Color(69, 73, 74),
             
             TREEFONT, controlFont,
             "Tree.font", controlFont,
-            "Tree.background", new Color(69, 73, 74),
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.textBackground", new Color(69, 73, 74), // NetBeans DebuggingViewComponent uses it as background color
