@@ -168,6 +168,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "Table.font", controlFont,
             "Table.ascendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-asc.png")),
             "Table.descendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-desc.png")),
+            "Table.focusCellHighlightBorder", BorderFactory.createEmptyBorder(),
             
             "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
             "TableHeader.font", controlFont,
@@ -187,7 +188,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.textBackground", new Color(69, 73, 74), // NetBeans DebuggingViewComponent uses it as background color
-            "Tree.selectionBorderColor", focusColor, // Use calculateD border color for HtmlLabelUI.            
+            "Tree.selectionBorderColor", focusColor, // Use calculateD border color for HtmlLabelUI.
 
             // FileChooser icons
             "FileView.directoryIcon", new ImageIcon(DarculaLFCustoms.class.getResource("closed.png")),
