@@ -25,13 +25,13 @@ import org.netbeans.swing.plaf.LFCustoms;
 import org.openide.util.ImageUtilities;
 import org.openide.util.Lookup;
 import org.openide.util.NbPreferences;
+import sun.swing.SwingLazyValue;
 
 /**
  * LFCustoms for Darcula LAF.
  *
  * @author Revivius
  */
-
 public class DarculaLFCustoms extends LFCustoms {
 
     private static final String FONT_DEFAULT_NAME = "Dialog";
@@ -141,7 +141,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "text", new Color(60, 63, 65),
             "textText", new Color(187, 187, 187),
             "infoText", new Color(187, 187, 187),
-            
+
             "LabelUI", "com.revivius.nb.darcula.ui.OptionsAwareLabelUI",
             "ButtonUI", "com.revivius.nb.darcula.ui.ContentAreaAwareButtonUI",
             "Button.border", new ReducedInsetsDarculaButtonPainter(),
@@ -152,6 +152,10 @@ public class DarculaLFCustoms extends LFCustoms {
             "SplitPaneUI", "com.revivius.nb.darcula.ui.DarculaSplitPaneUI",
             // #36
             "SpinnerUI", "com.revivius.nb.darcula.ui.SafeDarculaSpinnerUI",
+            // #31
+            // Icon provided by Aqua LAF is not visible on dark background
+            // provide default Metal arrow icon for all LAFs
+            "Menu.arrowIcon", new SwingLazyValue("javax.swing.plaf.metal.MetalIconFactory", "getMenuArrowIcon"),
 
             "Table.background", new Color(69, 73, 74),
             "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
@@ -228,7 +232,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "Slider.font", controlFont,
             "Spinner.font", controlFont,
             "TabbedPane.font", controlFont,
-            //for what?
             //"TabbedPane.smallFont", controlFont,
             "Table.font", controlFont,
             "TableHeader.font", controlFont,
