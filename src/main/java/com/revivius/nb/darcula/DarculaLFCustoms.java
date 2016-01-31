@@ -182,6 +182,7 @@ public class DarculaLFCustoms extends LFCustoms {
             
             LISTFONT, controlFont,
             "List.font", controlFont,
+            "List.focusCellHighlightBorder", BorderFactory.createEmptyBorder(),
             
             TREEFONT, controlFont,
             "Tree.font", controlFont,
