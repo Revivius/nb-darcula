@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
     <artifactId>nb-darcula</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
     <packaging>nbm</packaging>
 
     <name>Darcula LAF for NetBeans</name>
@@ -123,20 +123,30 @@
         <netbeans.version>RELEASE80</netbeans.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <description>&lt;h1&gt;Darcula LAF for NetBeans&lt;/h1&gt;
+    <description> A NetBeans Look And Feel plugin using Darcula of IntelliJ IDEA.
 
-        A NetBeans Look And Feel plugin using Darcula theme from IntelliJ Idea.
-
-        Wraps Darcula LAF from:  &lt;a href="https://github.com/bulenkov/Darcula"&gt;https://github.com/bulenkov/Darcula&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original LAF.&lt;/b&gt;
+Wraps &lt;a href="https://github.com/bulenkov/Darcula"&gt;Darcula LAF&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original Darcula LAF.&lt;/b&gt;
 
 &lt;h2&gt;Change Log&lt;/h2&gt;
+
+&lt;h3&gt;[1.4] - 2016-01-31&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed hard to read colors in Code Completion popup (hopefully) for all languages.&lt;/li&gt;
+&lt;li&gt;Disabled buttons and labels are easier to read.&lt;/li&gt;
+&lt;li&gt;Fixed default button behavior in dailogs (eg: alt+insert in editor to generate setters and getters).&lt;/li&gt;
+&lt;li&gt;It is safe to use this plugin in any NetBeans platform application now. Level used to log failed attempts to change hardcoded colors is now INFO and so no error dialog will be displayed at startup.&lt;/li&gt;
+&lt;li&gt;It is possible to use icon filter to invert icon colors and switch between stretched and non-stretched tabs in Tools &gt; Options &gt; Appearance &gt; Darcula Look And Feel.  Thanks to &lt;b&gt;markiewb&lt;/b&gt; for the contribution.&lt;/li&gt;
+&lt;li&gt;Improved icons for JOptionPane, thanks to &lt;b&gt;AlexFalappa&lt;/b&gt; and &lt;b&gt;granella&lt;/b&gt;.&lt;/li&gt;
+&lt;li&gt;More color, border and icon enhancements (including NetBeans Task/Issue viewer, submenu icons on MAC, Darcula Editor Theme and others).&lt;/li&gt;
+&lt;li&gt;For all addressed issues (27) please see &lt;a href="https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.4+is%3Aclosed"&gt;Milestone v1.4&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3&gt;[1.3] - 2016-01-24&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Bundled 'Darcula' theme (Tools &gt; Options &gt; Fonts&amp;Colors). Plugin will set theme to Darcula during first restart. Many thanks to &lt;b&gt;granella&lt;/b&gt; for the theme and helping with packaging it in plugin.&lt;/li&gt;
 &lt;li&gt;It is possible to specify font type and size within IDE via Tools &gt; Options &gt; Appearance &gt; Darcula Look And Feel. Many thanks to &lt;b&gt;markiewb&lt;/b&gt; for implementing this with other font related issues.&lt;/li&gt;
-&lt;li&gt;More color, border and icon enhancements (including diff, versioning colors and FormDesigner guidelines, new Split Pane UI thanks to hudsonb - &lt;a href="https://github.com/bulenkov/Darcula/pull/5"&gt;https://github.com/bulenkov/Darcula/pull/5&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;For all addressed issues (13) please see &lt;a href="https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.3+is%3Aclosed"&gt;https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.3+is%3Aclosed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;More color, border and icon enhancements (including diff, versioning colors and FormDesigner guidelines, new Split Pane UI thanks to &lt;a href="https://github.com/bulenkov/Darcula/pull/5"&gt;hudsonb&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;For all addressed issues (14) please see &lt;a href="https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.3+is%3Aclosed"&gt;Milestone v1.3&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;[1.2] - 2016-01-19&lt;/h3&gt;
