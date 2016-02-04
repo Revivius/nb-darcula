@@ -260,6 +260,7 @@ public class DarculaLFCustoms extends LFCustoms {
 
         replaceLFCustomsTextFgColors();
         replaceCompletionColors();
+        replaceSQLCompletionColumnColor();
 
         return result;
     }
@@ -610,11 +611,20 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, CLASS_COLOR_FIELD, getHTMLColor(new Color(214, 128, 128)));
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, PKG_COLOR_FIELD, getHTMLColor(new Color(128, 214, 128)));
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, KEYWORD_COLOR_FIELD, getHTMLColor(new Color(180, 180, 255)));
-        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, FIELD_COLOR_FIELD, getHTMLColor(new Color(0, 134, 24)));
+        replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, FIELD_COLOR_FIELD, getHTMLColor(new Color(0, 202, 88)));
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, VARIABLE_COLOR_FIELD, getHTMLColor(new Color(0, 192, 255)));
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, CONSTRUCTOR_COLOR_FIELD, getHTMLColor(new Color(178, 139, 0)));
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, INTERFACE_COLOR_FIELD, getHTMLColor(new Color(214, 128, 128)));
         replaceFieldValue(GSF_COMPLETION_FORMATTER_CLASS, PARAMETERS_COLOR_FIELD, getHTMLColor(new Color(64, 128, 64)));
+    }
+
+    /**
+     * #67, Column color for SQL
+     */
+    private static final String SQL_COMPLETION_ITEM_CLASS = "org.netbeans.modules.db.sql.editor.completion.SQLCompletionItem";
+    private static final String COLUMN_COLOR_FIELD = "COLUMN_COLOR"; // getHtmlColor(7, 7, 171); // NOI18N
+    private void replaceSQLCompletionColumnColor() {
+        replaceFieldValue(SQL_COMPLETION_ITEM_CLASS, COLUMN_COLOR_FIELD, getHTMLColor(new Color(0, 202, 88)));  
     }
 
     private static String getHTMLColor(Color c) {
