@@ -261,6 +261,8 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceLFCustomsTextFgColors();
         replaceCompletionColors();
         replaceSQLCompletionColumnColor();
+        replaceJSPCompletionColor();
+        replaceHTMLCompletionColor();      
 
         return result;
     }
@@ -626,6 +628,26 @@ public class DarculaLFCustoms extends LFCustoms {
     private void replaceSQLCompletionColumnColor() {
         replaceFieldValue(SQL_COMPLETION_ITEM_CLASS, COLUMN_COLOR_FIELD, getHTMLColor(new Color(0, 202, 88)));  
     }
+    
+    /**
+     * JSP completion colors
+     */
+    private static final String JSP_COMPLETION_ITEM_CLASS = "org.netbeans.modules.web.core.syntax.completion.api.JspCompletionItem";
+    private static final String JSP_COLOR_BASE_COMPLETION = "COLOR_BASE_COMPLETION";
+
+    private void replaceJSPCompletionColor() {
+        replaceFieldValue(JSP_COMPLETION_ITEM_CLASS, JSP_COLOR_BASE_COMPLETION, new Color(204, 105, 50));
+    }
+
+    /**
+     * HTML completion colors
+     */
+    private static final String HTML_COMPLETION_ITEM_CLASS = "org.netbeans.modules.html.editor.api.completion.HtmlCompletionItem$Tag";
+    private static final String HTML_DEFAULT_FG_COLOR = "DEFAULT_FG_COLOR";
+
+    private void replaceHTMLCompletionColor() {
+        replaceFieldValue(HTML_COMPLETION_ITEM_CLASS, HTML_DEFAULT_FG_COLOR, new Color(232, 191, 106));
+    }   
 
     private static String getHTMLColor(Color c) {
         return "<font color=#" //NOI18N
