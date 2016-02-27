@@ -7,9 +7,7 @@
         <font style="bold"/>
     </fontcolor>
     <fontcolor name="mod-class" waveUnderlined="red"/>
-    <fontcolor default="default" foreColor="black" name="el-delimiter">
-        <font style="bold"/>
-    </fontcolor>
+    <fontcolor default="default" name="el-delimiter"/>
     <fontcolor default="error" name="error"/>
     <fontcolor default="default" name="javascript-embedded"/>
     <fontcolor default="argument" name="operator"/>
