@@ -141,6 +141,8 @@ public class DarculaLFCustoms extends LFCustoms {
             "text", new Color(60, 63, 65),
             "textText", new Color(187, 187, 187),
             "infoText", new Color(187, 187, 187),
+            
+            "TabbedPaneUI", "com.revivius.nb.darcula.ui.DarkScrollButtonTabbedPaneUI",
 
             "LabelUI", "com.revivius.nb.darcula.ui.OptionsAwareLabelUI",
             "ButtonUI", "com.revivius.nb.darcula.ui.ContentAreaAwareButtonUI",
