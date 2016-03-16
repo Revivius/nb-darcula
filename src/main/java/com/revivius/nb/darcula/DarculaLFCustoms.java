@@ -116,23 +116,17 @@ public class DarculaLFCustoms extends LFCustoms {
             USERFONT, controlFont,
             MENUFONT, controlFont,
             WINDOWTITLEFONT, controlFont,
-            LISTFONT, controlFont,
-            TREEFONT, controlFont,
-            PANELFONT, controlFont,
             SUBFONT, controlFont.deriveFont(Font.PLAIN, Math.min(controlFont.getSize() - 1, 6)),
-            // #61395        
-            SPINNERFONT, controlFont,
             
             // Bug in JDK 1.5 thru b59 - pale blue is incorrectly returned for this
-            "textInactiveText", Color.GRAY, //NOI18N
-            // Work around a bug in windows which sets the text area font to
-            // "MonoSpaced", causing all accessible dialogs to have monospaced text
-            "TextArea.font", new GuaranteedValue("Label.font", controlFont),
+            "textInactiveText", Color.GRAY,
             
             /**
-             * Use calculateD border color for HtmlLabelUI.
+             * Work around a bug in windows which sets the text area font to 
+             * "MonoSpaced", causing all accessible dialogs to have monospaced text
              */
-            "Tree.selectionBorderColor", focusColor,
+            "TextArea.font", new GuaranteedValue("Label.font", controlFont),
+            
             /**
              * HtmlLabelUI uses UIManager.getColor("text") to find background
              * color for unselected items. Make sure the background color used
@@ -145,75 +139,92 @@ public class DarculaLFCustoms extends LFCustoms {
             "TabbedPaneUI", "com.revivius.nb.darcula.ui.DarkScrollButtonTabbedPaneUI",
 
             "LabelUI", "com.revivius.nb.darcula.ui.OptionsAwareLabelUI",
+            "Label.font", controlFont,
+            
             "ButtonUI", "com.revivius.nb.darcula.ui.ContentAreaAwareButtonUI",
             "Button.border", new ReducedInsetsDarculaButtonPainter(),
+            "Button.font", controlFont,
+                        
             "ToggleButtonUI", "com.revivius.nb.darcula.ui.ContentAreaAwareToggleButtonUI",
             "ToggleButton.border", new ReducedInsetsDarculaButtonPainter(),
+            "ToggleButton.font", controlFont,
             
             "ToolBarUI", "com.revivius.nb.darcula.ui.RolloverToolBarUI",
+            "ToolBar.font", controlFont,            
+            
             "SplitPaneUI", "com.revivius.nb.darcula.ui.DarculaSplitPaneUI",
-            // #36
-            "SpinnerUI", "com.revivius.nb.darcula.ui.SafeDarculaSpinnerUI",
-            // #31
-            // Icon provided by Aqua LAF is not visible on dark background
-            // provide default Metal arrow icon for all LAFs
+            
+            SPINNERFONT, controlFont,
+            "SpinnerUI", "com.revivius.nb.darcula.ui.SafeDarculaSpinnerUI", // #36
+            "Spinner.font", controlFont,
+            
+            /**
+             * #31 
+             * Icon provided by Aqua LAF is not visible on dark background
+             * provide default Metal arrow icon for all LAFs
+             */
             "Menu.arrowIcon", new SwingLazyValue("javax.swing.plaf.metal.MetalIconFactory", "getMenuArrowIcon"),
+            "Menu.acceleratorFont", controlFont,
+            "Menu.font", controlFont,
 
-            "Table.background", new Color(69, 73, 74),
-            "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
+            "Table.font", controlFont,
             "Table.ascendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-asc.png")),
             "Table.descendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-desc.png")),
             
+            "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
+            "TableHeader.font", controlFont,
+            
             "TitledBorder.border", BorderFactory.createLineBorder(new Color(41, 43, 45), 1),
+            "TitledBorder.font", controlFont,
             
             "MenuItem.acceleratorForeground", new Color(238, 238, 238),
-            "CheckBoxMenuItem.acceleratorForeground", new Color(238, 238, 238),
-            "RadioButtonMenuItem.acceleratorForeground", new Color(238, 238, 238),
+            "MenuItem.acceleratorFont", controlFont,
+            "MenuItem.font", controlFont,
             
-            "List.background", new Color(69, 73, 74),
+            LISTFONT, controlFont,
+            "List.font", controlFont,
             
-            "Tree.background", new Color(69, 73, 74),
+            TREEFONT, controlFont,
+            "Tree.font", controlFont,
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
-            // NetBeans DebuggingViewComponent uses it as background color
-            "Tree.textBackground", new Color(69, 73, 74),
+            "Tree.textBackground", new Color(69, 73, 74), // NetBeans DebuggingViewComponent uses it as background color
+            "Tree.selectionBorderColor", focusColor, // Use calculateD border color for HtmlLabelUI.            
 
             // FileChooser icons
+            "FileView.directoryIcon", new ImageIcon(DarculaLFCustoms.class.getResource("closed.png")),
+            "FileView.fileIcon", new ImageIcon(DarculaLFCustoms.class.getResource("file.png")),
+            
             "FileChooser.newFolderIcon", new ImageIcon(DarculaLFCustoms.class.getResource("newFolder.png")),
             "FileChooser.upFolderIcon", new ImageIcon(DarculaLFCustoms.class.getResource("upFolder.png")),
             "FileChooser.homeFolderIcon", new ImageIcon(DarculaLFCustoms.class.getResource("homeFolder.png")),
             "FileChooser.detailsViewIcon", new ImageIcon(DarculaLFCustoms.class.getResource("detailsView.png")),
             "FileChooser.listViewIcon", new ImageIcon(DarculaLFCustoms.class.getResource("listView.png")),
-            "FileView.directoryIcon", new ImageIcon(DarculaLFCustoms.class.getResource("closed.png")),
-            "FileView.fileIcon", new ImageIcon(DarculaLFCustoms.class.getResource("file.png")),
             "FileChooser.computerIcon", new ImageIcon(DarculaLFCustoms.class.getResource("computer.png")),
             "FileChooser.hardDriveIcon", new ImageIcon(DarculaLFCustoms.class.getResource("hardDrive.png")),
             "FileChooser.floppyDriveIcon", new ImageIcon(DarculaLFCustoms.class.getResource("floppyDrive.png")),
             
-            // Keys taken from
-            // http://alvinalexander.com/java/java-swing-uimanager-defaults
-            // https://gist.github.com/itzg/5938035
-            // http://thebadprogrammer.com/swing-uimanager-keys/
-            "Button.font", controlFont,
             "CheckBox.font", controlFont,
             "CheckBoxMenuItem.acceleratorFont", controlFont,
             "CheckBoxMenuItem.font", controlFont,
+            "CheckBoxMenuItem.acceleratorForeground", new Color(238, 238, 238),
+
             "ColorChooser.font", controlFont,
+            
             "ComboBox.font", controlFont,
+            
             "EditorPane.font", controlFont,
+            
             "FormattedTextField.font", controlFont,
+            
             "IconButton.font", controlFont,
+            
             "InternalFrame.optionDialogTitleFont", controlFont,
             "InternalFrame.paletteTitleFont", controlFont,
             "InternalFrame.titleFont", controlFont,
-            "Label.font", controlFont,
-            "List.font", controlFont,
-            "Menu.acceleratorFont", controlFont,
-            "Menu.font", controlFont,
+            
             "MenuBar.font", controlFont,
-            "MenuItem.acceleratorFont", controlFont,
-            "MenuItem.font", controlFont,
-
+            
             "OptionPane.buttonFont", controlFont,
             "OptionPane.font", controlFont,
             "OptionPane.messageFont", controlFont,
@@ -223,26 +234,32 @@ public class DarculaLFCustoms extends LFCustoms {
             "OptionPane.questionIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_question.png")),
             "OptionPane.warningIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_warning.png")),
 
+            PANELFONT, controlFont,
             "Panel.font", controlFont,
+            
             "PasswordField.font", controlFont,
+            
             "PopupMenu.font", controlFont,
+            
             "ProgressBar.font", controlFont,
+            
             "RadioButton.font", controlFont,
             "RadioButtonMenuItem.acceleratorFont", controlFont,
             "RadioButtonMenuItem.font", controlFont,
+            "RadioButtonMenuItem.acceleratorForeground", new Color(238, 238, 238),
+            
             "ScrollPane.font", controlFont,
+            
             "Slider.font", controlFont,
-            "Spinner.font", controlFont,
+            
             "TabbedPane.font", controlFont,
             //"TabbedPane.smallFont", controlFont,
-            "Table.font", controlFont,
-            "TableHeader.font", controlFont,
+            
             "TextArea.font", controlFont,
+            
             "TextField.font", controlFont,
+            
             "TextPane.font", controlFont,
-            "TitledBorder.font", controlFont,
-            "ToggleButton.font", controlFont,
-            "ToolBar.font", controlFont,
             
             "ToolTip.font", controlFont,
             "ToolTip.border", BorderFactory.createLineBorder(new Color(154, 154, 102)),
@@ -250,7 +267,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "ToolTip.foregroundInactive", new Color(187, 187, 187),
             "ToolTip.backgroundInactive", new Color(92, 92, 66),
             
-            "Tree.font", controlFont,
             "Viewport.font", controlFont,
         };
 
