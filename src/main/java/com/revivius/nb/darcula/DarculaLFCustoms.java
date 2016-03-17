@@ -145,7 +145,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "ToolBar.font", controlFont,
             "SplitPaneUI", "com.revivius.nb.darcula.ui.DarculaSplitPaneUI",
             SPINNERFONT, controlFont,
-            "SpinnerUI", "com.revivius.nb.darcula.ui.SafeDarculaSpinnerUI", // #36
             "Spinner.font", controlFont,
             /**
              * #31 Icon provided by Aqua LAF is not visible on dark background provide default Metal arrow icon for all LAFs
