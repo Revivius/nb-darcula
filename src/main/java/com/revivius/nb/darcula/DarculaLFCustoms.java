@@ -10,7 +10,9 @@ import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
@@ -283,6 +285,7 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceSQLCompletionColumnColor();
         replaceJSPCompletionColor();
         replaceHTMLCompletionColor();      
+        replaceProjectTabColors();
 
         return result;
     }
@@ -654,7 +657,6 @@ public class DarculaLFCustoms extends LFCustoms {
      */
     private static final String JSP_COMPLETION_ITEM_CLASS = "org.netbeans.modules.web.core.syntax.completion.api.JspCompletionItem";
     private static final String JSP_COLOR_BASE_COMPLETION = "COLOR_BASE_COMPLETION";
-
     private void replaceJSPCompletionColor() {
         replaceFieldValue(JSP_COMPLETION_ITEM_CLASS, JSP_COLOR_BASE_COMPLETION, new Color(204, 105, 50));
     }
@@ -664,10 +666,30 @@ public class DarculaLFCustoms extends LFCustoms {
      */
     private static final String HTML_COMPLETION_ITEM_CLASS = "org.netbeans.modules.html.editor.api.completion.HtmlCompletionItem$Tag";
     private static final String HTML_DEFAULT_FG_COLOR = "DEFAULT_FG_COLOR";
-
     private void replaceHTMLCompletionColor() {
         replaceFieldValue(HTML_COMPLETION_ITEM_CLASS, HTML_DEFAULT_FG_COLOR, new Color(232, 191, 106));
-    }   
+    } 
+    
+    /**
+     * #85, #88
+     * Tab colors for files belonging to same project
+     */
+    private static final String PROJECT_COLOR_TAB_DECORATOR_CLASS = "org.netbeans.core.multitabs.impl.ProjectColorTabDecorator";
+    private static final String BACKGROUND_COLORS_FIELD = "backGroundColors";
+    private void replaceProjectTabColors() {
+        List<Color> backgroundColors = new ArrayList<Color>();
+        backgroundColors.add(new Color(96, 135, 117));
+        backgroundColors.add(new Color(135, 101, 101));
+        backgroundColors.add(new Color(135, 127, 94));
+        backgroundColors.add(new Color(96, 119, 135));
+        backgroundColors.add(new Color(121, 135, 89));
+        backgroundColors.add(new Color(135, 105, 89));
+        backgroundColors.add(new Color(108, 135, 96));
+        backgroundColors.add(new Color(107, 135, 38));
+        backgroundColors.add(new Color(118, 89, 135));
+
+        replaceFieldValue(PROJECT_COLOR_TAB_DECORATOR_CLASS, BACKGROUND_COLORS_FIELD, backgroundColors);
+    }
 
     private static String getHTMLColor(Color c) {
         return "<font color=#" //NOI18N
