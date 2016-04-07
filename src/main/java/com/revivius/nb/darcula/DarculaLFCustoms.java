@@ -223,7 +223,8 @@ public class DarculaLFCustoms extends LFCustoms {
             "ToolTip.borderInactive", BorderFactory.createLineBorder(new Color(154, 154, 102)),
             "ToolTip.foregroundInactive", new Color(187, 187, 187),
             "ToolTip.backgroundInactive", new Color(92, 92, 66),
-            "Viewport.font", controlFont,};
+            "Viewport.font", controlFont
+        };
 
         removeEnterFromTreeInputMap();
 
@@ -236,6 +237,7 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceSQLCompletionColumnColor();
         replaceJSPCompletionColor();
         replaceHTMLCompletionColor();
+        replaceProjectTabColors();
 
         return result;
     }
@@ -323,28 +325,19 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.dataview.table.background", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
             "nb.dataview.table.altbackground", new RelativeColor(new Color(0, 0, 0), new Color(30, 30, 30), "Table.background"),
             "nb.dataview.table.sqlconstant.foreground", new Color(220, 220, 220),
-            "nb.dataview.tablecell.focused", /*new RelativeColor(new Color(0, 0, 0), new Color(10, 10, 30), "Table.selectionBackground"), */ new Color(
-            13, 41, 62),
-            "nb.dataview.table.rollOverRowBackground", new RelativeColor(new Color(0, 0, 0), new Color(30, 30, 30),
-            "Table.selectionBackground"),
+            "nb.dataview.tablecell.focused", /*new RelativeColor(new Color(0, 0, 0), new Color(10, 10, 30), "Table.selectionBackground"), */ new Color(13, 41, 62),
+            "nb.dataview.table.rollOverRowBackground", new RelativeColor(new Color(0, 0, 0), new Color(30, 30, 30), "Table.selectionBackground"),
             "nb.dataview.tablecell.edited.selected.foreground", new Color(241, 255, 177),
             "nb.dataview.tablecell.edited.unselected.foreground", /*new Color(0, 255, 16),*/ new Color(172, 221, 124),
             "nb.dataview.jxdatetimepicker.background", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
             "nb.dataview.jxdatetimepicker.foreground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.foreground"),
-            "nb.dataview.jxdatetimepicker.selectedBackground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0),
-            "Table.selectionBackground"),
-            "nb.dataview.jxdatetimepicker.selectedForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0),
-            "Table.selectionForeground"),
-            "nb.dataview.jxdatetimepicker.daysOfTheWeekForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0),
-            "Table.background"),
-            "nb.dataview.jxdatetimepicker.todayBackground", new RelativeColor(new Color(0, 0, 0), new Color(20, 20, 20),
-            "TableHeader.background"),
-            "nb.dataview.jxdatetimepicker.todayPanel.background.gradient.start", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0),
-            "TableHeader.background"),
-            "nb.dataview.jxdatetimepicker.todayPanel.background.gradient.end", new RelativeColor(new Color(0, 0, 0), new Color(10, 10, 10),
-            "TableHeader.background"),
-            "nb.dataview.jxdatetimepicker.todayPanel.linkForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0),
-            "TableHeader.foreground"),
+            "nb.dataview.jxdatetimepicker.selectedBackground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.selectionBackground"),
+            "nb.dataview.jxdatetimepicker.selectedForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.selectionForeground"),
+            "nb.dataview.jxdatetimepicker.daysOfTheWeekForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
+            "nb.dataview.jxdatetimepicker.todayBackground", new RelativeColor(new Color(0, 0, 0), new Color(20, 20, 20), "TableHeader.background"),
+            "nb.dataview.jxdatetimepicker.todayPanel.background.gradient.start", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "TableHeader.background"),
+            "nb.dataview.jxdatetimepicker.todayPanel.background.gradient.end", new RelativeColor(new Color(0, 0, 0), new Color(10, 10, 10), "TableHeader.background"),
+            "nb.dataview.jxdatetimepicker.todayPanel.linkForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "TableHeader.foreground"),
             // form designer
             "nb.formdesigner.gap.fixed.color", new Color(70, 73, 75),
             "nb.formdesigner.gap.resizing.color", new Color(66, 69, 71),
@@ -405,7 +398,8 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.output.failure.foreground", new Color(255, 107, 104),
             "nb.output.success.foreground", new Color(112, 255, 112),
             "nb.output.debug.foreground", new Color(145, 145, 145),
-            "textHighlight", new Color(240, 119, 70),};
+            "textHighlight", new Color(240, 119, 70)
+        };
 
         result = maybeEnableIconFilter(result);
 
@@ -599,6 +593,27 @@ public class DarculaLFCustoms extends LFCustoms {
 
     private void replaceHTMLCompletionColor() {
         replaceFieldValue(HTML_COMPLETION_ITEM_CLASS, HTML_DEFAULT_FG_COLOR, new Color(232, 191, 106));
+    }
+
+    /**
+     * #85, #88 Tab colors for files belonging to same project
+     */
+    private static final String PROJECT_COLOR_TAB_DECORATOR_CLASS = "org.netbeans.core.multitabs.impl.ProjectColorTabDecorator";
+    private static final String BACKGROUND_COLORS_FIELD = "backGroundColors";
+
+    private void replaceProjectTabColors() {
+        List<Color> backgroundColors = new ArrayList<Color>();
+        backgroundColors.add(new Color(96, 135, 117));
+        backgroundColors.add(new Color(135, 101, 101));
+        backgroundColors.add(new Color(135, 127, 94));
+        backgroundColors.add(new Color(96, 119, 135));
+        backgroundColors.add(new Color(121, 135, 89));
+        backgroundColors.add(new Color(135, 105, 89));
+        backgroundColors.add(new Color(108, 135, 96));
+        backgroundColors.add(new Color(107, 135, 38));
+        backgroundColors.add(new Color(118, 89, 135));
+
+        replaceFieldValue(PROJECT_COLOR_TAB_DECORATOR_CLASS, BACKGROUND_COLORS_FIELD, backgroundColors);
     }
 
     private static String getHTMLColor(Color c) {
