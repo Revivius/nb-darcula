@@ -157,7 +157,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "SplitPaneUI", "com.revivius.nb.darcula.ui.DarculaSplitPaneUI",
             
             SPINNERFONT, controlFont,
-            "SpinnerUI", "com.revivius.nb.darcula.ui.SafeDarculaSpinnerUI", // #36
             "Spinner.font", controlFont,
             
             /**
@@ -233,10 +232,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "OptionPane.font", controlFont,
             "OptionPane.messageFont", controlFont,
             "OptionPane.messageForeground", new Color(187, 187, 187),
-            "OptionPane.errorIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_error.png")),
-            "OptionPane.informationIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_info.png")),
-            "OptionPane.questionIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_question.png")),
-            "OptionPane.warningIcon", new ImageIcon(DarculaLFCustoms.class.getResource("option_pane_warning.png")),
 
             PANELFONT, controlFont,
             "Panel.font", controlFont,
