@@ -8,6 +8,13 @@ The most recent stable version of this plugin is available at the NetBeans Plugi
 
 ## Change Log
 
+### [1.5] - 2016-04-09
+ - Hard to read colors in HTML, XHTML, JSP and SQL code completion popups and Apache Conf (.htaccess, .conf) files fixed thank to **granella**.
+ - Baseline alignment of combo boxes fixed thanks to **AlexFalappa**. Fix for toggle buttons moved to original Darcula library; they should look OK now in GUI designer too.
+ - Editor tab colors for 'Same background color from the same project' feature (Tools > Options > Appearance > Document Tabs) adjusted to match Darcula LAF.
+ - More color, border and icon enhancements (including background color for tree and tables, border of selected rows, icons in Profiler and C/C++ wizard).
+ - For all addressed issues (14) please see [Milestone v1.5](https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.5+is%3Aclosed).
+
 ### [1.4] - 2016-01-31
  - Fixed hard to read colors in Code Completion popup (hopefully) for all languages.
  - Disabled buttons and labels are easier to read.

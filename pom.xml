@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
     <artifactId>nb-darcula</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>nbm</packaging>
 
     <name>Darcula LAF for NetBeans</name>
@@ -128,6 +128,15 @@
 Wraps &lt;a href="https://github.com/bulenkov/Darcula"&gt;Darcula LAF&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original Darcula LAF.&lt;/b&gt;
 
 &lt;h2&gt;Change Log&lt;/h2&gt;
+
+&lt;h3&gt;[1.5] - 2016-04-09&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Hard to read colors in HTML, XHTML, JSP and SQL code completion popups and Apache Conf (.htaccess, .conf) files fixed thank to &lt;b&gt;granella&lt;/b&gt;.&lt;/li&gt;
+&lt;li&gt;Baseline alignment of combo boxes fixed thanks to &lt;b&gt;AlexFalappa&lt;/b&gt;. Fix for toggle buttons moved to original Darcula library; they should look OK now in GUI designer too.&lt;/li&gt;
+&lt;li&gt;Editor tab colors for 'Same background color from the same project' feature (Tools &gt; Options &gt; Appearance &gt; Document Tabs) adjusted to match Darcula LAF.&lt;/li&gt;
+&lt;li&gt;More color, border and icon enhancements (including background color for tree and tables, border of selected rows, icons in Profiler and C/C++ wizard).&lt;/li&gt;
+&lt;li&gt;For all addressed issues (14) please see &lt;a href="https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.5+is%3Aclosed"&gt;Milestone v1.5&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3&gt;[1.4] - 2016-01-31&lt;/h3&gt;
 &lt;ul&gt;
