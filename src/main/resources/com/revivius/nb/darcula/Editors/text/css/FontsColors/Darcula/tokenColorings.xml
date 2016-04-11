@@ -9,7 +9,7 @@
     </fontcolor>
     <fontcolor foreColor="ff6a8759" name="mod-method"/>
     <fontcolor default="separator" name="braces"/>
-    <fontcolor foreColor="ff006666" name="mod-private">
+    <fontcolor foreColor="ff00a4a4" name="mod-private">
         <font style="bold"/>
     </fontcolor>
     <fontcolor default="string" name="uris"/>
@@ -24,7 +24,7 @@
     <fontcolor default="operator" name="operators"/>
     <fontcolor name="mod-custom1"/>
     <fontcolor default="number" name="hashes"/>
-    <fontcolor foreColor="ff006666" name="mod-local-variable"/>
+    <fontcolor foreColor="ff00a4a4" name="mod-local-variable"/>
     <fontcolor name="mod-constructor">
         <font style="bold"/>
     </fontcolor>
