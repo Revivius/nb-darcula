@@ -191,7 +191,6 @@ public class DarculaLFCustoms extends LFCustoms {
             "Tree.font", controlFont,
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
-            "Tree.textBackground", new Color(69, 73, 74), // NetBeans DebuggingViewComponent uses it as background color
             "Tree.selectionBorderColor", focusColor, // Use calculateD border color for HtmlLabelUI.
 
             // FileChooser icons
@@ -280,6 +279,7 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceSQLCompletionColumnColor();
         replaceJSPCompletionColor();
         replaceHTMLCompletionColor();      
+        replaceCSSPreprocessorCompletionColors();
         replaceProjectTabColors();
 
         return result;
@@ -664,7 +664,18 @@ public class DarculaLFCustoms extends LFCustoms {
     private void replaceHTMLCompletionColor() {
         replaceFieldValue(HTML_COMPLETION_ITEM_CLASS, HTML_DEFAULT_FG_COLOR, new Color(232, 191, 106));
     } 
-    
+
+    /**
+     * #91, CSS selector and preprocessor completion colors (LESS and SASS)
+     */
+    private static final String CP_COMPLETION_ITEM_CLASS = "org.netbeans.modules.css.prep.editor.CPCompletionItem";
+    private static final String CP_LHS_COLOR_FIELD = "COLOR";
+    private static final String CP_RHS_COLOR_FIELD = "ORIGIN_COLOR";
+    private void replaceCSSPreprocessorCompletionColors() {
+        replaceFieldValue(CP_COMPLETION_ITEM_CLASS, CP_LHS_COLOR_FIELD, new Color(0, 164, 164));
+        replaceFieldValue(CP_COMPLETION_ITEM_CLASS, CP_RHS_COLOR_FIELD, new Color(255, 255, 255));
+    }
+
     /**
      * #85, #88
      * Tab colors for files belonging to same project
