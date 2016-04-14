@@ -71,8 +71,8 @@ public class Installer extends ModuleInstall {
             Object invokeResult = method.invoke(colorModel, new Object[0]);
             return invokeResult != null && !DarculaLaf.NAME.equals(invokeResult);
         } catch (Exception ex) {
-            //ignore
-            Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot get the current editor colors profile.", ex);
+            // log the problem
+            Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot get the current editor colors profile ({0}).", ex.getClass().getName());
         }
         return false;
     }

@@ -4,6 +4,7 @@ import com.revivius.nb.darcula.ui.InreasedInsetsTableHeaderBorder;
 import com.revivius.nb.darcula.ui.ReducedInsetsDarculaButtonPainter;
 import com.revivius.nb.darcula.options.DarculaLAFOptionsPanelController;
 import com.revivius.nb.darcula.options.DarculaLAFPanel;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
@@ -12,10 +13,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
@@ -23,10 +27,12 @@ import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ColorUIResource;
+
 import org.netbeans.swing.plaf.LFCustoms;
 import org.openide.util.ImageUtilities;
 import org.openide.util.Lookup;
 import org.openide.util.NbPreferences;
+
 import sun.swing.SwingLazyValue;
 
 /**
@@ -56,7 +62,10 @@ public class DarculaLFCustoms extends LFCustoms {
 
     private static final String TAB_BORDER = "tab_border"; //NOI18N      
     private static final String TAB_SEL_BORDER = "tab_sel_border"; //NOI18N
-    private static final String TAB_BORDER_INNER = "tab_border_inner"; //NOI18N      
+    private static final String TAB_BORDER_INNER = "tab_border_inner"; //NOI18N
+
+    // map of exceptions during color replacements and other LAF tweaks indexed by class name
+    private final Map<String,String> tweakExceptions=new HashMap<String, String>();
 
     @Override
     public Object[] createGuaranteedKeysAndValues() {
@@ -282,6 +291,7 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceHTMLCompletionColor();      
         replaceProjectTabColors();
 
+        logReplaceProbs();
         return result;
     }
 
@@ -695,7 +705,6 @@ public class DarculaLFCustoms extends LFCustoms {
     }
 
     private void replaceFieldValue(String className, String fieldName, Object value) {
-
         Class<?> sbClass = null;
         try {
             sbClass = ClassLoader.getSystemClassLoader().loadClass(className);
@@ -706,28 +715,21 @@ public class DarculaLFCustoms extends LFCustoms {
                 try {
                     ClassLoader systemClassLoader = (ClassLoader) Lookup.getDefault().lookup(ClassLoader.class);
                     if (systemClassLoader != null) {
-
                         sbClass = systemClassLoader.loadClass(className);
                     }
                 } catch (ClassNotFoundException ex2) {
-                    Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
-                            "Can not find class, will not be able to replace its field...", ex2);
+                    tweakExceptions.put(className, ex2.getClass().getName());
                 }
             }
         } catch (SecurityException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
-                    "Can not find class, will not be able to replace its field...", ex);
+            tweakExceptions.put(className, ex.getClass().getName());
         } catch (IllegalArgumentException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
-                    "Can not find class, will not be able to replace its field...", ex);
+            tweakExceptions.put(className, ex.getClass().getName());
         }
-
         if (sbClass == null) {
             return;
         }
-
         replaceFieldValue(sbClass, fieldName, value);
-
     }
     
     private void replaceFieldValue(Class<?> clazz, String fieldName, Object value) {
@@ -741,15 +743,23 @@ public class DarculaLFCustoms extends LFCustoms {
 
             field.set(null, value);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
-                    "Can not replace field...", ex);
+            tweakExceptions.put(clazz.getName(), ex.getClass().getName());
         } catch (NoSuchFieldException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
-                    "Can not replace field...", ex);
+            tweakExceptions.put(clazz.getName(), ex.getClass().getName());
         } catch (SecurityException ex) {
-            Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
-                    "Can not replace field...", ex);
+            tweakExceptions.put(clazz.getName(), ex.getClass().getName());
         }
     }
-    
+
+    // log problems encountered during replacements
+    private void logReplaceProbs() {
+        if (!tweakExceptions.isEmpty()) {
+            final Logger logger = Logger.getLogger(DarculaLFCustoms.class.getName());
+            logger.log(Level.INFO, "Could not tweak Darcula Look and Feel in the following classes:");
+            for (Map.Entry<String, String> entry : tweakExceptions.entrySet()) {
+                logger.log(Level.INFO, String.format("\t%s (%s)%n", entry.getKey(), entry.getValue()));
+            }
+        }
+    }
+
 }
