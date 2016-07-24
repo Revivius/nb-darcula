@@ -657,12 +657,15 @@ public class DarculaLFCustoms extends LFCustoms {
     }
 
     /**
-     * HTML completion colors
+     * #106
+     * HTML completion colors for HTML Tags and Custom Tags
      */
     private static final String HTML_COMPLETION_ITEM_CLASS = "org.netbeans.modules.html.editor.api.completion.HtmlCompletionItem$Tag";
+    private static final String CUSTOM_TAG_COMPLETION_ITEM_CLASS = "org.netbeans.modules.html.custom.CustomTagCompletionItem";
     private static final String HTML_DEFAULT_FG_COLOR = "DEFAULT_FG_COLOR";
     private void replaceHTMLCompletionColor() {
         replaceFieldValue(HTML_COMPLETION_ITEM_CLASS, HTML_DEFAULT_FG_COLOR, new Color(232, 191, 106));
+        replaceFieldValue(CUSTOM_TAG_COMPLETION_ITEM_CLASS, HTML_DEFAULT_FG_COLOR, new Color(64, 127, 255));
     } 
 
     /**
