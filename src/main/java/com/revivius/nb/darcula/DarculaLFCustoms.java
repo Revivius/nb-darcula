@@ -5,7 +5,9 @@ import com.revivius.nb.darcula.ui.ReducedInsetsDarculaButtonPainter;
 import com.revivius.nb.darcula.options.DarculaLAFOptionsPanelController;
 import com.revivius.nb.darcula.options.DarculaLAFPanel;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
@@ -21,6 +23,7 @@ import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
+import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ColorUIResource;
 import org.netbeans.swing.plaf.LFCustoms;
@@ -171,7 +174,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "Table.font", controlFont,
             "Table.ascendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-asc.png")),
             "Table.descendingSortIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-desc.png")),
-            "Table.focusCellHighlightBorder", BorderFactory.createEmptyBorder(),
+            "Table.focusCellHighlightBorder", new TransparentBorder(),
             
             "TableHeader.cellBorder", new InreasedInsetsTableHeaderBorder(),
             "TableHeader.font", controlFont,
@@ -185,7 +188,7 @@ public class DarculaLFCustoms extends LFCustoms {
             
             LISTFONT, controlFont,
             "List.font", controlFont,
-            "List.focusCellHighlightBorder", BorderFactory.createEmptyBorder(),
+            "List.focusCellHighlightBorder", new TransparentBorder(),
             
             TREEFONT, controlFont,
             "Tree.font", controlFont,
@@ -763,6 +766,28 @@ public class DarculaLFCustoms extends LFCustoms {
         } catch (SecurityException ex) {
             Logger.getLogger(DarculaLFCustoms.class.getName()).log(Level.INFO,
                     "Can not replace field...", ex);
+        }
+    }
+
+    /**
+     * Fixes https://github.com/Revivius/nb-darcula/issues/119
+     *
+     * @author markiewb
+     */
+    private static class TransparentBorder implements Border {
+
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(1, 1, 1, 1);
+        }
+
+        @Override
+        public boolean isBorderOpaque() {
+            return false;
+        }
+
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
         }
     }
     
