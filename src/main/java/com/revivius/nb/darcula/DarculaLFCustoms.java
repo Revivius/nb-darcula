@@ -284,6 +284,7 @@ public class DarculaLFCustoms extends LFCustoms {
         replaceHTMLCompletionColor();      
         replaceCSSPreprocessorCompletionColors();
         replaceProjectTabColors();
+        replaceSpringBootCompletionColor();
 
         return result;
     }
@@ -702,6 +703,16 @@ public class DarculaLFCustoms extends LFCustoms {
 
         replaceFieldValue(PROJECT_COLOR_TAB_DECORATOR_CLASS, BACKGROUND_COLORS_FIELD, backgroundColors);
     }
+
+    /**
+     * SpringBoot configuration completion colors for SpringBoot configuration support plugin.
+     * See https://github.com/keevosh/nb-springboot-configuration-support
+     */
+    private static final String SBCFG_COMPLETION_ITEM_CLASS = "com.keevosh.springframework.boot.netbeans.SpringBootConfigurationCompletionItem";
+    private static final String SBCFG_DEFAULT_FG_COLOR = "fieldColor";
+    private void replaceSpringBootCompletionColor() {
+        replaceFieldValue(SBCFG_COMPLETION_ITEM_CLASS, SBCFG_DEFAULT_FG_COLOR, new Color(180, 180, 255));
+    } 
 
     private static String getHTMLColor(Color c) {
         return "<font color=#" //NOI18N
