@@ -34,8 +34,8 @@ public class ReducedInsetsDarculaButtonPainter implements Border, UIResource {
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_DEFAULT);
             g2d.setPaint(new GradientPaint(
-                    width / 2, y, Gray._80.withAlpha(90),
-                    width / 2, height, Gray._90.withAlpha(90)));
+                    width / 2.0f, y, Gray._80.withAlpha(90),
+                    width / 2.0f, height, Gray._90.withAlpha(90)));
 
             g2d.setPaint(Gray._100.withAlpha(180));
             

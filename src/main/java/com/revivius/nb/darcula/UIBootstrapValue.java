@@ -91,7 +91,7 @@ public class UIBootstrapValue implements UIDefaults.LazyValue {
             this.name = uiClassName;
         }
         
-        public Object createValue(javax.swing.UIDefaults uidefaults) {
+        public Object createValue(UIDefaults uidefaults) {
             if (!installed) {
                 installKeysAndValues(uidefaults);
             }

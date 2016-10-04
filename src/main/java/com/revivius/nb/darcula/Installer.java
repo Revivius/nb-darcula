@@ -48,7 +48,7 @@ public class Installer extends ModuleInstall {
                     switchEditorColorsProfile();
                 }
             });
-        };
+        }
     }
 
     /**
