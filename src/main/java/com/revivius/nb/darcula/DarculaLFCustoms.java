@@ -421,9 +421,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.startpage.tab.border2.color", new Color(13, 41, 62),
             "nb.startpage.rss.details.color", new Color(187, 187, 187),
             "nb.startpage.rss.header.color", new Color(125, 160, 225),
-            "nb.startpage.tab.imagename.selected", "org/netbeans/modules/welcome/resources/tab_selected_dark.png", //NOI18N
-            "nb.startpage.tab.imagename.rollover", "org/netbeans/modules/welcome/resources/tab_rollover_dark.png", //NOI18N
-            "nb.startpage.imagename.contentheader", "org/netbeans/modules/welcome/resources/content_banner_dark.png", //NOI18N
+
             "nb.startpage.contentheader.color1", new Color(12, 33, 61),
             "nb.startpage.contentheader.color2", new Color(16, 24, 42),
             
