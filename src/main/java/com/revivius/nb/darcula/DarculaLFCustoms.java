@@ -382,23 +382,11 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.bugtracking.conflict.color", new Color(255, 100, 100),
 
             // db.dataview
-            "nb.dataview.table.gridbackground", UIManager.getColor("Table.gridColor"),
-            "nb.dataview.table.background", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
-            "nb.dataview.table.altbackground", new RelativeColor(new Color(0, 0, 0), new Color(30, 30, 30), "Table.background"),
-            "nb.dataview.table.sqlconstant.foreground", new Color(220, 220, 220),
-            "nb.dataview.tablecell.focused", /*new RelativeColor(new Color(0, 0, 0), new Color(10, 10, 30), "Table.selectionBackground"), */ new Color(13, 41, 62),
-            "nb.dataview.table.rollOverRowBackground", new RelativeColor(new Color(0, 0, 0), new Color(30, 30, 30), "Table.selectionBackground"),
-            "nb.dataview.tablecell.edited.selected.foreground", new Color(241, 255, 177),
-            "nb.dataview.tablecell.edited.unselected.foreground", /*new Color(0, 255, 16),*/ new Color(172, 221, 124),
-            "nb.dataview.jxdatetimepicker.background", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
-            "nb.dataview.jxdatetimepicker.foreground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.foreground"),
-            "nb.dataview.jxdatetimepicker.selectedBackground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.selectionBackground"),
-            "nb.dataview.jxdatetimepicker.selectedForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.selectionForeground"),
-            "nb.dataview.jxdatetimepicker.daysOfTheWeekForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "Table.background"),
-            "nb.dataview.jxdatetimepicker.todayBackground", new RelativeColor(new Color(0, 0, 0), new Color(20, 20, 20), "TableHeader.background"),
-            "nb.dataview.jxdatetimepicker.todayPanel.background.gradient.start", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "TableHeader.background"),
-            "nb.dataview.jxdatetimepicker.todayPanel.background.gradient.end", new RelativeColor(new Color(0, 0, 0), new Color(10, 10, 10), "TableHeader.background"),
-            "nb.dataview.jxdatetimepicker.todayPanel.linkForeground", new RelativeColor(new Color(0, 0, 0), new Color(0, 0, 0), "TableHeader.foreground"),
+            "nb.dataview.table.grid", new Color(91, 91, 95),
+            "nb.dataview.table.altbackground", new RelativeColor(new Color(0, 0, 0), new Color(20, 20, 20), "Table.background"),
+            "nb.dataview.tablecell.focused", new Color(13, 41, 62),
+            "nb.dataview.tablecell.edited.selected.foreground", new Color(255, 184, 26),
+            "nb.dataview.tablecell.edited.unselected.foreground", new Color(26, 184, 255),
             
             // form designer
             "nb.formdesigner.gap.fixed.color", new Color(70, 73, 75),
