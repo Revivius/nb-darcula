@@ -30,7 +30,7 @@ import org.netbeans.swing.plaf.LFCustoms;
 import org.openide.util.ImageUtilities;
 import org.openide.util.Lookup;
 import org.openide.util.NbPreferences;
-import sun.swing.SwingLazyValue;
+import javax.swing.UIDefaults.ProxyLazyValue;
 
 /**
  * LFCustoms for Darcula LAF.
@@ -167,7 +167,7 @@ public class DarculaLFCustoms extends LFCustoms {
              * Icon provided by Aqua LAF is not visible on dark background
              * provide default Metal arrow icon for all LAFs
              */
-            "Menu.arrowIcon", new SwingLazyValue("javax.swing.plaf.metal.MetalIconFactory", "getMenuArrowIcon"),
+            "Menu.arrowIcon", new ProxyLazyValue("javax.swing.plaf.metal.MetalIconFactory", "getMenuArrowIcon"),
             "Menu.acceleratorFont", controlFont,
             "Menu.font", controlFont,
 
