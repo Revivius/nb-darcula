@@ -115,6 +115,11 @@ public class DarculaLFCustoms extends LFCustoms {
         Color c = UIManager.getColor("Tree.selectionBackground");
         Color focusColor = new Color(c.getRed(), c.getGreen(), c.getBlue() + 1);
 
+        int leftChildIndent = UIManager.getInt("Tree.leftChildIndent");
+        if (prefs.getBoolean(DarculaLAFOptionsPanelController.OVERRIDE_TREE_INDENT_BOOLEAN, false)) {
+            leftChildIndent = prefs.getInt(DarculaLAFOptionsPanelController.TREE_INDENT_INT, leftChildIndent);
+        }
+
         Object[] result = {
             // The assorted standard NetBeans metal font customizations
             CONTROLFONT, controlFont,
@@ -190,12 +195,14 @@ public class DarculaLFCustoms extends LFCustoms {
             LISTFONT, controlFont,
             "List.font", controlFont,
             "List.focusCellHighlightBorder", new TransparentBorder(),
-            
+
+            "TreeUI", "com.revivius.nb.darcula.ui.IndentAwareTreeUI",
             TREEFONT, controlFont,
             "Tree.font", controlFont,
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.selectionBorderColor", focusColor, // Use calculateD border color for HtmlLabelUI.
+            "Tree.leftChildIndent", leftChildIndent,
 
             // FileChooser icons
             "FileView.directoryIcon", new ImageIcon(DarculaLFCustoms.class.getResource("closed.png")),
