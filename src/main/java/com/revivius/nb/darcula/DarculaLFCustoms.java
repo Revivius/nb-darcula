@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -458,6 +459,36 @@ public class DarculaLFCustoms extends LFCustoms {
         
         result = maybeEnableIconFilter(result);
 
+        return UIUtils_addInputMapsWithoutCtrlPageUpAndCtrlPageDown(result);
+    }
+
+    /**
+     * Fixes https://github.com/Revivius/nb-darcula/issues/114
+     *
+     * @param result
+     * @return
+     */
+    private Object[] UIUtils_addInputMapsWithoutCtrlPageUpAndCtrlPageDown(Object[] result) {
+        /**
+         * Took the idea of org.netbeans.swing.plaf.metal.MetalLFCustoms.createApplicationSpecificKeysAndValues() to call
+         * org.netbeans.swing.plaf.util.UIUtils.addInputMapsWithoutCtrlPageUpAndCtrlPageDown(Object[]).
+         * <br>
+         * But it is module-private, so call it via reflections
+         */
+
+        ClassLoader loader = Lookup.getDefault().lookup(ClassLoader.class);
+        if (loader == null) {
+            loader = this.getClass().getClassLoader();
+        }
+        try {
+            Class claszz = loader.loadClass("org.netbeans.swing.plaf.util.UIUtils");
+            Method method = claszz.getMethod("addInputMapsWithoutCtrlPageUpAndCtrlPageDown", Object[].class);
+            Object[] updatedResult = (Object[]) method.invoke(null, new Object[]{result});
+            return updatedResult;
+        } catch (Exception ex) {
+            //ignore
+            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Cannot setup input map", ex);
+        }
         return result;
     }
 
