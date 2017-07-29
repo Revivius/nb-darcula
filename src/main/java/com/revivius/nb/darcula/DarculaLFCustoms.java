@@ -475,11 +475,11 @@ public class DarculaLFCustoms extends LFCustoms {
                 TAB_FOCUS_FILL_LOWER, new Color(65, 81, 109),
                 
                 //no selection, no focus
-                TAB_UNSEL_FILL_UPPER, new Color(84, 88, 91),
+                TAB_UNSEL_FILL_UPPER, new Color(77, 80, 84),
                 TAB_UNSEL_FILL_LOWER, new Color(56, 58, 60),
                 
                 //selected, no focus
-                TAB_SEL_FILL, new Color(84, 88, 91),
+                TAB_SEL_FILL, new Color(100, 104, 107),
                 
                 //no selection, mouse over
                 TAB_MOUSE_OVER_FILL_UPPER, new Color(114, 119, 122),
