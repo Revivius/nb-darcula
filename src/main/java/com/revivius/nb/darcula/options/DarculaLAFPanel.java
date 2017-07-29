@@ -20,6 +20,7 @@ import java.awt.Font;
 import java.beans.PropertyEditor;
 import java.beans.PropertyEditorManager;
 import java.util.prefs.Preferences;
+import javax.swing.UIManager;
 import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
@@ -39,7 +40,9 @@ import org.openide.util.NbPreferences;
             "invert",
             "invert colors",
             "stretched",
-            "stretched tabs"
+            "stretched tabs",
+            "tree indent",
+            "indent"
         }
 )
 public class DarculaLAFPanel extends javax.swing.JPanel {
@@ -52,14 +55,15 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
     }
 
     public void reinitUI() {
-        if (!cbOverride.isSelected()) {
+        if (!cbFontSizeOverride.isSelected()) {
             lblFontName.setText(DarculaLFCustoms.DEFAULT_FONT);
         }
         
-        lblFont.setEnabled(cbOverride.isSelected());
-        lblFontName.setEnabled(cbOverride.isSelected());
-        lblRestart.setEnabled(cbOverride.isSelected());
-        btnChooseFont.setEnabled(cbOverride.isSelected());
+        lblFontName.setEnabled(cbFontSizeOverride.isSelected());
+        btnChooseFont.setEnabled(cbFontSizeOverride.isSelected());
+
+        spTreeIndent.setEnabled(cbTreeIndentOverride.isSelected());
+        lblTreeIndentPx.setEnabled(cbTreeIndentOverride.isSelected());
     }
 
     /**
@@ -72,28 +76,24 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbOverride = new javax.swing.JCheckBox();
-        lblRestart = new javax.swing.JLabel();
+        cbFontSizeOverride = new javax.swing.JCheckBox();
         lblFontName = new javax.swing.JTextField();
-        lblFont = new javax.swing.JLabel();
         btnChooseFont = new javax.swing.JButton();
         cbInvertIcons = new javax.swing.JCheckBox();
         cbStretchedTabs = new javax.swing.JCheckBox();
+        cbTreeIndentOverride = new javax.swing.JCheckBox();
+        spTreeIndent = new javax.swing.JSpinner();
+        lblTreeIndentPx = new javax.swing.JLabel();
 
-        org.openide.awt.Mnemonics.setLocalizedText(cbOverride, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbOverride.text")); // NOI18N
-        cbOverride.addChangeListener(new javax.swing.event.ChangeListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(cbFontSizeOverride, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbFontSizeOverride.text")); // NOI18N
+        cbFontSizeOverride.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                cbOverrideStateChanged(evt);
+                cbFontSizeOverrideStateChanged(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(lblRestart, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.lblRestart.text")); // NOI18N
-
         lblFontName.setEditable(false);
         lblFontName.setText(org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.lblFontName.text")); // NOI18N
-
-        lblFont.setLabelFor(btnChooseFont);
-        org.openide.awt.Mnemonics.setLocalizedText(lblFont, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.lblFont.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(btnChooseFont, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.btnChooseFont.text")); // NOI18N
         btnChooseFont.addActionListener(new java.awt.event.ActionListener() {
@@ -116,55 +116,69 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(cbTreeIndentOverride, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.cbTreeIndentOverride.text")); // NOI18N
+        cbTreeIndentOverride.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                cbTreeIndentOverrideStateChanged(evt);
+            }
+        });
+
+        spTreeIndent.setModel(new javax.swing.SpinnerNumberModel(8, 4, 60, 1));
+
+        org.openide.awt.Mnemonics.setLocalizedText(lblTreeIndentPx, org.openide.util.NbBundle.getMessage(DarculaLAFPanel.class, "DarculaLAFPanel.lblTreeIndentPx.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbStretchedTabs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbInvertIcons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cbOverride))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(lblFont)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblFontName, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnChooseFont)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRestart))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cbInvertIcons))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cbStretchedTabs)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbFontSizeOverride)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblFontName, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnChooseFont))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbTreeIndentOverride)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spTreeIndent, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblTreeIndentPx)))
+                        .addGap(0, 222, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cbOverride)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbFontSizeOverride)
                     .addComponent(lblFontName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFont)
-                    .addComponent(lblRestart)
                     .addComponent(btnChooseFont))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbTreeIndentOverride)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(spTreeIndent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTreeIndentPx)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbInvertIcons)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbStretchedTabs)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbOverrideStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbOverrideStateChanged
+    private void cbFontSizeOverrideStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbFontSizeOverrideStateChanged
         controller.changed();
         reinitUI();
-    }//GEN-LAST:event_cbOverrideStateChanged
+    }//GEN-LAST:event_cbFontSizeOverrideStateChanged
 
     private void btnChooseFontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseFontActionPerformed
         PropertyEditor pe = PropertyEditorManager.findEditor(Font.class);
@@ -194,12 +208,20 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
         controller.changed();
     }//GEN-LAST:event_cbStretchedTabsItemStateChanged
 
+    private void cbTreeIndentOverrideStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbTreeIndentOverrideStateChanged
+        controller.changed();
+        reinitUI();
+    }//GEN-LAST:event_cbTreeIndentOverrideStateChanged
+
     void load() {
         Preferences prefs = NbPreferences.forModule(DarculaLAFPanel.class);
         
-        cbOverride.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, false));
+        cbFontSizeOverride.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, false));
         lblFontName.setText(prefs.get(DarculaLAFOptionsPanelController.FONT_STRING, DarculaLFCustoms.DEFAULT_FONT));
         
+        cbTreeIndentOverride.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.OVERRIDE_TREE_INDENT_BOOLEAN, false));
+        spTreeIndent.setValue(prefs.getInt(DarculaLAFOptionsPanelController.TREE_INDENT_INT, UIManager.getInt("Tree.leftChildIndent")));
+
         cbInvertIcons.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.INVERT_ICONS_BOOLEAN, false));
         cbStretchedTabs.setSelected(prefs.getBoolean(DarculaLAFOptionsPanelController.STRETCHED_TABS_BOOLEAN, false));
 
@@ -209,9 +231,12 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
     void store() {
         Preferences prefs = NbPreferences.forModule(DarculaLAFPanel.class);
 
-        prefs.putBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, cbOverride.isSelected());
+        prefs.putBoolean(DarculaLAFOptionsPanelController.OVERRIDE_FONT_BOOLEAN, cbFontSizeOverride.isSelected());
         prefs.put(DarculaLAFOptionsPanelController.FONT_STRING, lblFontName.getText());
- 
+        
+        prefs.putBoolean(DarculaLAFOptionsPanelController.OVERRIDE_TREE_INDENT_BOOLEAN, cbTreeIndentOverride.isSelected());
+        prefs.putInt(DarculaLAFOptionsPanelController.TREE_INDENT_INT, (Integer) spTreeIndent.getValue());
+
         prefs.putBoolean(DarculaLAFOptionsPanelController.INVERT_ICONS_BOOLEAN, cbInvertIcons.isSelected());
         prefs.putBoolean(DarculaLAFOptionsPanelController.STRETCHED_TABS_BOOLEAN, cbStretchedTabs.isSelected());
     }
@@ -223,11 +248,12 @@ public class DarculaLAFPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChooseFont;
+    private javax.swing.JCheckBox cbFontSizeOverride;
     private javax.swing.JCheckBox cbInvertIcons;
-    private javax.swing.JCheckBox cbOverride;
     private javax.swing.JCheckBox cbStretchedTabs;
-    private javax.swing.JLabel lblFont;
+    private javax.swing.JCheckBox cbTreeIndentOverride;
     private javax.swing.JTextField lblFontName;
-    private javax.swing.JLabel lblRestart;
+    private javax.swing.JLabel lblTreeIndentPx;
+    private javax.swing.JSpinner spTreeIndent;
     // End of variables declaration//GEN-END:variables
 }
