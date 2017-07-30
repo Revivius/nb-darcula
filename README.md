@@ -8,6 +8,14 @@ The most recent stable version of this plugin is available at the NetBeans Plugi
 
 ## Change Log
 
+### [1.6] - 2017-07-31
+ - Plugin now works on JDK9. Thanks to **Smurfi** and **markiewb**.
+ - Now it is possible to override indentation level of trees (including the one in Projects window) via Tools > Options > Appearance > Darcula Look And Feel.
+ - Tab navigation with CTRL+PageUp/PageDown fixed.  Thanks to **markiewb**.
+ - Hard to read colors in SQL results table, start page and notification links fixed.
+ - Hard to read colors for custom HTML tags, CSS preprocessor variables and mixins in code completion popup fixed.
+ - For all addressed issues (16) please see [Milestone v1.6](https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.6+is%3Aclosed).
+
 ### [1.5] - 2016-04-09
  - Hard to read colors in HTML, XHTML, JSP and SQL code completion popups and Apache Conf (.htaccess, .conf) files fixed thank to **granella**.
  - Baseline alignment of combo boxes fixed thanks to **AlexFalappa**. Fix for toggle buttons moved to original Darcula library; they should look OK now in GUI designer too.

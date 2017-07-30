@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
     <artifactId>nb-darcula</artifactId>
-    <version>1.5</version>
+    <version>1.6</version>
     <packaging>nbm</packaging>
 
     <name>Darcula LAF for NetBeans</name>
@@ -128,6 +128,16 @@
 Wraps &lt;a href="https://github.com/bulenkov/Darcula"&gt;Darcula LAF&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original Darcula LAF.&lt;/b&gt;
 
 &lt;h2&gt;Change Log&lt;/h2&gt;
+
+&lt;h3&gt;[1.6] - 2017-07-31&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Plugin now works on JDK9. Thanks to &lt;b&gt;Smurfi&lt;/b&gt; and &lt;b&gt;markiewb&lt;/b&gt;.&lt;/li&gt;
+&lt;li&gt;Now it is possible to override indentation level of trees (including the one in Projects window) via Tools &gt; Options &gt; Appearance &gt; Darcula Look And Feel.&lt;/li&gt;
+&lt;li&gt;Tab navigation with CTRL+PageUp/PageDown fixed.  Thanks to &lt;b&gt;markiewb&lt;/b&gt;.&lt;/li&gt;
+&lt;li&gt;Hard to read colors in SQL results table, start page and notification links fixed.&lt;/li&gt;
+&lt;li&gt;Hard to read colors for custom HTML tags, CSS preprocessor variables and mixins in code completion popup fixed.&lt;/li&gt;
+&lt;li&gt;For all addressed issues (16) please see &lt;a href="https://github.com/Revivius/nb-darcula/issues?q=milestone%3Av1.6+is%3Aclosed"&gt;Milestone v1.6&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3&gt;[1.5] - 2016-04-09&lt;/h3&gt;
 &lt;ul&gt;
