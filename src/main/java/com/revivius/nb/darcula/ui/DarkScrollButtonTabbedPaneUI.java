@@ -49,7 +49,7 @@ public class DarkScrollButtonTabbedPaneUI extends DarculaTabbedPaneUI {
         return new ScrollableTabButton(direction);
     }
 
-    private class ScrollableTabButton extends BasicArrowButton implements UIResource,
+    private static class ScrollableTabButton extends BasicArrowButton implements UIResource,
                                                                             SwingConstants {
         public ScrollableTabButton(int direction) {
             super(direction,

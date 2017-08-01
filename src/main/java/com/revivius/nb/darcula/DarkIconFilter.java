@@ -60,9 +60,9 @@ public class DarkIconFilter extends RGBImageFilter {
     @Override
     public int filterRGB(int x, int y, int color) {
         int a = color & 0xff000000;
-        int rgb[] = decode(color);
-        int inverted[] = invert(rgb);
-        int result[] = invertHueBrighten(inverted, DARK_ICON_BRIGHTEN);
+        int[] rgb = decode(color);
+        int[] inverted = invert(rgb);
+        int[] result = invertHueBrighten(inverted, DARK_ICON_BRIGHTEN);
         return a | encode(result);
    }
 

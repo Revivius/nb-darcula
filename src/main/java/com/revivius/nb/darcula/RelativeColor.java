@@ -251,8 +251,7 @@ public class RelativeColor implements UIDefaults.LazyValue {
             resultHSB[2] = resultHSB[2] - (resultHSB[2] * 0.25f);
         }
 
-        Color result = new Color (Color.HSBtoRGB(finalHSB[0], finalHSB[1], finalHSB[2]));
-        return result;
+        return new Color (Color.HSBtoRGB(finalHSB[0], finalHSB[1], finalHSB[2]));
     }
     
     private static float[] percentageDiff (float[] a, float[] b) {
@@ -268,13 +267,12 @@ public class RelativeColor implements UIDefaults.LazyValue {
     
     private static final void out (String nm, float[] f) {
         //XXX for debugging - deleteme
-        StringBuffer sb = new StringBuffer(nm);
+        StringBuilder sb = new StringBuilder(nm);
         sb.append(": ");
         for (int i=0; i < f.length; i++) {
             sb.append (Math.round(f[i] * 100));
             if (i != f.length-1) {
-                sb.append(',');
-                sb.append(' ');
+                sb.append(", ");
             }
         }
         System.err.println(sb.toString());
@@ -319,7 +317,6 @@ public class RelativeColor implements UIDefaults.LazyValue {
 //            System.err.println("adjusting brightness to " + resultHSB[2] + " from " + targHSB[2]);
         }
         
-        Color result = new Color (Color.HSBtoRGB(resultHSB[0], resultHSB[1], resultHSB[2]));
-        return result;
+        return new Color (Color.HSBtoRGB(resultHSB[0], resultHSB[1], resultHSB[2]));
     }
 }
