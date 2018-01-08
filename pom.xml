@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
     <artifactId>nb-darcula</artifactId>
-    <version>1.6</version>
+    <version>1.6.1</version>
     <packaging>nbm</packaging>
 
     <name>Darcula LAF for NetBeans</name>
@@ -120,12 +120,12 @@
     </dependencies>
 
     <properties>
-        <netbeans.version>RELEASE80</netbeans.version>
+        <netbeans.version>RELEASE802</netbeans.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <description> A NetBeans Look And Feel plugin using Darcula of IntelliJ IDEA.
 
-Wraps &lt;a href="https://github.com/bulenkov/Darcula"&gt;Darcula LAF&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original Darcula LAF.&lt;/b&gt;
+        Wraps &lt;a href="https://github.com/bulenkov/Darcula"&gt;Darcula LAF&lt;/a&gt; and provides required NetBeans specific customizations. &lt;b&gt;Many thanks to Konstantin Bulenkov for open sourcing original Darcula LAF.&lt;/b&gt;
 
 &lt;h2&gt;Change Log&lt;/h2&gt;
 
