@@ -62,6 +62,9 @@ public class DarculaLFCustoms extends LFCustoms {
     private static final String TAB_SEL_BORDER = "tab_sel_border"; //NOI18N
     private static final String TAB_BORDER_INNER = "tab_border_inner"; //NOI18N      
 
+    private static final Color COLOR_DEFAULT_FOREGROUND = new ColorUIResource(60, 63, 65);
+    private static final Color COLOR_DEFAULT_BACKGROUND = new ColorUIResource(187, 187, 187);
+
     @Override
     public Object[] createGuaranteedKeysAndValues() {
         // same color for DarculaMetalTheme getAcceleratorForeground()
@@ -143,9 +146,9 @@ public class DarculaLFCustoms extends LFCustoms {
              * color for unselected items. Make sure the background color used
              * by HtmlLabelUI is same with the LAF.
              */
-            "text", new Color(60, 63, 65),
-            "textText", new Color(187, 187, 187),
-            "infoText", new Color(187, 187, 187),
+            "text", COLOR_DEFAULT_FOREGROUND,
+            "textText", COLOR_DEFAULT_BACKGROUND,
+            "infoText", COLOR_DEFAULT_BACKGROUND,
             
             "TabbedPaneUI", "com.revivius.nb.darcula.ui.DarkScrollButtonTabbedPaneUI",
 
@@ -201,7 +204,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "Tree.font", controlFont,
             "Tree.closedIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
             "Tree.openIcon", new ImageIcon(DarculaLFCustoms.class.getResource("open.png")),
-            "Tree.selectionBorderColor", focusColor, // Use calculateD border color for HtmlLabelUI.
+            "Tree.selectionBorderColor", focusColor, // Use calculated border color for HtmlLabelUI.
             "Tree.leftChildIndent", leftChildIndent,
 
             // FileChooser icons
@@ -241,7 +244,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "OptionPane.buttonFont", controlFont,
             "OptionPane.font", controlFont,
             "OptionPane.messageFont", controlFont,
-            "OptionPane.messageForeground", new Color(187, 187, 187),
+            "OptionPane.messageForeground", COLOR_DEFAULT_BACKGROUND,
 
             PANELFONT, controlFont,
             "Panel.font", controlFont,
@@ -261,6 +264,12 @@ public class DarculaLFCustoms extends LFCustoms {
             
             "Slider.font", controlFont,
             
+            // to fix DefaultTableCellRenderer.getTableCellRendererComponent with combobox renderers when table focused
+            "Table.focusCellForeground", COLOR_DEFAULT_BACKGROUND,
+            "Table.focusCellBackground", COLOR_DEFAULT_FOREGROUND,
+            "Table.dropCellForeground", COLOR_DEFAULT_BACKGROUND,
+            "Table.dropCellBackground", COLOR_DEFAULT_FOREGROUND,
+            
             "TabbedPane.font", controlFont,
             //"TabbedPane.smallFont", controlFont,
             
@@ -273,7 +282,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "ToolTip.font", controlFont,
             "ToolTip.border", BorderFactory.createLineBorder(new Color(154, 154, 102)),
             "ToolTip.borderInactive", BorderFactory.createLineBorder(new Color(154, 154, 102)),
-            "ToolTip.foregroundInactive", new Color(187, 187, 187),
+            "ToolTip.foregroundInactive", COLOR_DEFAULT_BACKGROUND,
             "ToolTip.backgroundInactive", new Color(92, 92, 66),
             
             "Viewport.font", controlFont,
@@ -346,9 +355,9 @@ public class DarculaLFCustoms extends LFCustoms {
             
             // explorer views
             "nb.explorer.unfocusedSelBg", new Color(13, 41, 62),
-            "nb.explorer.unfocusedSelFg", new Color(187, 187, 187),
+            "nb.explorer.unfocusedSelFg", COLOR_DEFAULT_BACKGROUND,
             "nb.explorer.noFocusSelectionBackground", new Color(13, 41, 62),
-            "nb.explorer.noFocusSelectionForeground", new Color(187, 187, 187),
+            "nb.explorer.noFocusSelectionForeground", COLOR_DEFAULT_BACKGROUND,
             "ETableHeader.ascendingIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-asc.png")),
             "ETableHeader.descendingIcon", new ImageIcon(DarculaLFCustoms.class.getResource("column-desc.png")),
             
@@ -380,7 +389,7 @@ public class DarculaLFCustoms extends LFCustoms {
 
             // bug tracking
             "nb.bugtracking.comment.background", new Color(59, 63, 64),
-            "nb.bugtracking.comment.foreground", new Color(187, 187, 187),
+            "nb.bugtracking.comment.foreground", COLOR_DEFAULT_BACKGROUND,
             "nb.bugtracking.label.highlight", new Color(205, 205, 0),
             "nb.bugtracking.table.background", new Color(59, 63, 64),
             "nb.bugtracking.table.background.alternate", new Color(69, 73, 74),
@@ -415,7 +424,7 @@ public class DarculaLFCustoms extends LFCustoms {
             "nb.startpage.border.color", new Color(13, 41, 62),
             "nb.startpage.tab.border1.color", new Color(13, 41, 62),
             "nb.startpage.tab.border2.color", new Color(13, 41, 62),
-            "nb.startpage.rss.details.color", new Color(187, 187, 187),
+            "nb.startpage.rss.details.color", COLOR_DEFAULT_BACKGROUND,
             "nb.startpage.rss.header.color", new Color(125, 160, 225),
 
             "nb.startpage.contentheader.color1", new Color(12, 33, 61),
@@ -451,7 +460,7 @@ public class DarculaLFCustoms extends LFCustoms {
             
             // output
             "nb.output.backgorund", new Color(43, 43, 43),
-            "nb.output.foreground", new Color(187, 187, 187),
+            "nb.output.foreground", COLOR_DEFAULT_BACKGROUND,
             "nb.output.input", new Color(0, 127, 0),
             "nb.output.err.foreground", new Color(255, 107, 104),
             "nb.output.link.foreground", new Color(126, 174, 241),
@@ -560,7 +569,7 @@ public class DarculaLFCustoms extends LFCustoms {
                 PROPSHEET_SELECTED_SET_BACKGROUND, new Color(75, 110, 175),
                 PROPSHEET_SELECTED_SET_FOREGROUND, Color.WHITE,
                 PROPSHEET_DISABLED_FOREGROUND, new Color(161, 161, 146),
-                PROPSHEET_BUTTON_FOREGROUND, new Color(187, 187, 187),};
+                PROPSHEET_BUTTON_FOREGROUND, COLOR_DEFAULT_BACKGROUND};
         }
     }
 
@@ -635,7 +644,7 @@ public class DarculaLFCustoms extends LFCustoms {
     private static final String TEXT_FG_COLOR_HTML_FIELD = "textFgColorHTML";
     private static final String TEXT_FG_COLOR_FIELD = "textFgColor";
     private void replaceLFCustomsTextFgColors() {
-        replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_FIELD, new Color(187, 187, 187));
+        replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_FIELD, COLOR_DEFAULT_BACKGROUND);
         replaceFieldValue(LFCustoms.class, TEXT_FG_COLOR_HTML_FIELD, "<font color=#bbbbbb>");
     }
 
