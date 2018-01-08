@@ -8,6 +8,8 @@ The most recent stable version of this plugin is available at the NetBeans Plugi
 
 ## Change Log
 
+### [1.6.1] - 2018-01-08
+
 ### [1.6] - 2017-07-31
  - Plugin now works on JDK9. Thanks to **Smurfi** and **markiewb**.
  - Now it is possible to override indentation level of trees (including the one in Projects window) via Tools > Options > Appearance > Darcula Look And Feel.
