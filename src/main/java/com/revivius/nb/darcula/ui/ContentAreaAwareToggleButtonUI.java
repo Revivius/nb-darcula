@@ -8,9 +8,8 @@ import javax.swing.JToggleButton;
 import javax.swing.plaf.ComponentUI;
 
 /**
- * A minor re-write of DarculaButtonUI to prevent painting background when
- * content area filled property is set to false on button and painting a
- * noticable background if button is selected.
+ * A minor re-write of DarculaButtonUI to prevent painting background when content area filled property is set to false
+ * on button and painting a noticable background if button is selected.
  *
  * Adapted from modified DarculaButtonUI.
  *

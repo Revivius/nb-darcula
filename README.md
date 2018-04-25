@@ -8,7 +8,12 @@ The most recent stable version of this plugin is available at the NetBeans Plugi
 
 ## Change Log
 
-### [1.6.1] - 2018-01-08
+### [1.6.2] - 2018-04-25
+ - Uses new version of Darcula look and feel that fixes the sizes used when painting the progress bar.
+ - Added a default height value for progress bars to prevent fix the same default size when a label is painted in it or not
+
+### [1.6.1] - 2018-01-08 
+ - Fixed background color issue with JComboBox in a JTable
 
 ### [1.6] - 2017-07-31
  - Plugin now works on JDK9. Thanks to **Smurfi** and **markiewb**.

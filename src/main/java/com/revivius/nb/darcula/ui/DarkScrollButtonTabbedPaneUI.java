@@ -31,6 +31,7 @@ import javax.swing.plaf.basic.BasicArrowButton;
 
 /**
  * Overrides {@link #createScrollButton(int)} to provide a button which is more suitable to dark look and feel.
+ *
  * @author Revivius
  */
 public class DarkScrollButtonTabbedPaneUI extends DarculaTabbedPaneUI {
@@ -41,16 +42,17 @@ public class DarkScrollButtonTabbedPaneUI extends DarculaTabbedPaneUI {
 
     @Override
     protected JButton createScrollButton(int direction) {
-        if (direction != SOUTH && direction != NORTH && direction != EAST &&
-                                  direction != WEST) {
-            throw new IllegalArgumentException("Direction must be one of: " +
-                                               "SOUTH, NORTH, EAST or WEST");
+        if (direction != SOUTH && direction != NORTH && direction != EAST
+                && direction != WEST) {
+            throw new IllegalArgumentException("Direction must be one of: "
+                    + "SOUTH, NORTH, EAST or WEST");
         }
         return new ScrollableTabButton(direction);
     }
 
-    private class ScrollableTabButton extends BasicArrowButton implements UIResource,
-                                                                            SwingConstants {
+    private static class ScrollableTabButton extends BasicArrowButton implements UIResource,
+            SwingConstants {
+
         public ScrollableTabButton(int direction) {
             super(direction,
                     new Color(60, 63, 65),
@@ -63,5 +65,5 @@ public class DarkScrollButtonTabbedPaneUI extends DarculaTabbedPaneUI {
             );
         }
     }
-    
+
 }

@@ -11,13 +11,14 @@ import javax.swing.plaf.basic.BasicSplitPaneUI;
  * @author Revivius
  */
 public class DarculaSplitPaneUI extends BasicSplitPaneUI {
-  @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass", "UnusedDeclaration"})
-  public static ComponentUI createUI(JComponent c) {
-    return new DarculaSplitPaneUI();
-  }
 
-  @Override
-  public BasicSplitPaneDivider createDefaultDivider() {
-    return new DarculaSplitPaneDivider(this);
-  }
+    @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass", "UnusedDeclaration"})
+    public static ComponentUI createUI(JComponent c) {
+        return new DarculaSplitPaneUI();
+    }
+
+    @Override
+    public BasicSplitPaneDivider createDefaultDivider() {
+        return new DarculaSplitPaneDivider(this);
+    }
 }

@@ -17,8 +17,7 @@ import javax.swing.plaf.basic.BasicToolBarUI;
 import org.netbeans.swing.plaf.LFCustoms;
 
 /**
- * A ToolBarUI that installs a ChangeListener on buttons to enable rollover for
- * JButtons and JToggleButtons.
+ * A ToolBarUI that installs a ChangeListener on buttons to enable rollover for JButtons and JToggleButtons.
  *
  * @author Revivius
  */

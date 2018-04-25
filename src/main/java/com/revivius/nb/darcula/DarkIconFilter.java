@@ -46,45 +46,48 @@ import java.awt.image.RGBImageFilter;
 
 /**
  * COPIED from o.n.swing.laf.dark\src\org\netbeans\swing\laf\dark\DarkIconFilter.java
- * 
- * For dark LaFs it inverts icon brightness (=inverts icon image to obtain dark icon,
- * then inverts its hue to restore original colors).
- * 
+ *
+ * For dark LaFs it inverts icon brightness (=inverts icon image to obtain dark icon, then inverts its hue to restore
+ * original colors).
+ *
  * @author P. Somol
  */
 public class DarkIconFilter extends RGBImageFilter {
 
-    /** in dark LaFs brighten all icons; 0.0f = no change, 1.0f = maximum brightening */
+    /**
+     * in dark LaFs brighten all icons; 0.0f = no change, 1.0f = maximum brightening
+     */
     private static final float DARK_ICON_BRIGHTEN = 0.1f;
 
     @Override
     public int filterRGB(int x, int y, int color) {
         int a = color & 0xff000000;
-        int rgb[] = decode(color);
-        int inverted[] = invert(rgb);
-        int result[] = invertHueBrighten(inverted, DARK_ICON_BRIGHTEN);
+        int[] rgb = decode(color);
+        int[] inverted = invert(rgb);
+        int[] result = invertHueBrighten(inverted, DARK_ICON_BRIGHTEN);
         return a | encode(result);
-   }
+    }
 
     private int[] invert(int[] rgb) {
-        return new int[]{255-rgb[0], 255-rgb[1], 255-rgb[2]};
+        return new int[]{255 - rgb[0], 255 - rgb[1], 255 - rgb[2]};
     }
 
     private int[] invertHueBrighten(int[] rgb, float brighten) {
         float hsb[] = new float[3];
         Color.RGBtoHSB(rgb[0], rgb[1], rgb[2], hsb);
-        return decode(Color.HSBtoRGB(hsb[0] > 0.5f ? hsb[0]-0.5f : hsb[0]+0.5f, hsb[1], hsb[2]+(1.0f-hsb[2])*brighten));
+        return decode(Color.HSBtoRGB(hsb[0] > 0.5f ? hsb[0] - 0.5f : hsb[0] + 0.5f, hsb[1], hsb[2] + (1.0f - hsb[2]) * brighten));
     }
 
     private int[] decode(int rgb) {
         return new int[]{(rgb & 0x00ff0000) >> 16, (rgb & 0x0000ff00) >> 8, rgb & 0x000000ff};
     }
+
     private int encode(int[] rgb) {
         return (toBoundaries(rgb[0]) << 16) | (toBoundaries(rgb[1]) << 8) | toBoundaries(rgb[2]);
     }
 
     private int toBoundaries(int color) {
-        return Math.max(0,Math.min(255,color));
+        return Math.max(0, Math.min(255, color));
     }
 
 }

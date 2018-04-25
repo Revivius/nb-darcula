@@ -13,9 +13,8 @@ import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 /**
- * Makes Darcula LAF available in preferred LAF combo, installs
- * DarculaLFCustoms, set Preferences and switch the editor color profile to
- * Darcula theme.
+ * Makes Darcula LAF available in preferred LAF combo, installs DarculaLFCustoms, set Preferences and switch the editor
+ * color profile to Darcula theme.
  *
  * @author Revivius
  */
@@ -48,16 +47,14 @@ public class Installer extends ModuleInstall {
                     switchEditorColorsProfile();
                 }
             });
-        };
+        }
     }
 
     /**
-     * Returns if possible to change color profile. Use reflection to
-     * instantiate ColorModel (private package) class and get the current
-     * profile.
+     * Returns if possible to change color profile. Use reflection to instantiate ColorModel (private package) class and
+     * get the current profile.
      *
-     * @return {@code true} if current profile not equals this theme profile
-     * name or {@code false} otherwise.
+     * @return {@code true} if current profile not equals this theme profile name or {@code false} otherwise.
      */
     private boolean isChangeEditorColorsPossible() {
         ClassLoader loader = Lookup.getDefault().lookup(ClassLoader.class);
@@ -71,16 +68,15 @@ public class Installer extends ModuleInstall {
             Object invokeResult = method.invoke(colorModel, new Object[0]);
             return invokeResult != null && !DarculaLaf.NAME.equals(invokeResult);
         } catch (Exception ex) {
-            //ignore
-            Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot get the current editor colors profile.", ex);
+            // log the problem
+            Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot get the current editor colors profile ({0}).", ex.getClass().getName());
         }
         return false;
     }
 
     /**
-     * Switch the editor color profile if possible. Use reflection to
-     * instantiate ColorModel (private package) class and set the current
-     * profile
+     * Switch the editor color profile if possible. Use reflection to instantiate ColorModel (private package) class and
+     * set the current profile
      */
     private void switchEditorColorsProfile() {
         if (!isChangeEditorColorsPossible()) {
