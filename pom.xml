@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
-    <artifactId>nb-darcula</artifactId>
+    <artifactId>com-revivius-nb-darcula</artifactId>
     <version>1.6.2</version>
     <packaging>nbm</packaging>
 
@@ -22,12 +22,20 @@
                     <licenseName>Apache 2.0</licenseName>
                     <keystore>keystore/store.jks</keystore>
                     <keystorealias>Revivius</keystorealias>
+                    <moduleDependencies>
+                        <!-- need to declare this dependency to get private access to classes [org.netbeans.swing.plaf.util.RelativeColor, org.netbeans.swing.plaf.util.GuaranteedValue, org.netbeans.swing.plaf.util.UIBootstrapValue$Lazy, org.netbeans.swing.plaf.util.UIBootstrapValue] -->
+                        <dependency>
+                            <id>org.netbeans.api:org-netbeans-swing-plaf</id>
+                            <type>impl</type>
+                        </dependency>
+                    </moduleDependencies>
+
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -36,7 +44,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.0</version>
                 <configuration>
                     <!-- to have the jar plugin pickup the nbm generated manifest, that is generated first. see http://www.mojohaus.org/nbm-maven-plugin/manifest-mojo.html -->
                     <!-- Replacement of useDefaultManifestFile as explained https://maven.apache.org/plugins/maven-jar-plugin/ for version 3+ -->
