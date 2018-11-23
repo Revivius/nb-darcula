@@ -3,10 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
     <artifactId>com-revivius-nb-darcula</artifactId>
-    <version>1.6.2</version>
+    <version>1.6.3-SNAPSHOT</version>
     <packaging>nbm</packaging>
 
     <name>Darcula LAF for NetBeans</name>
+
+    <properties>
+        <netbeans.version>RELEASE90</netbeans.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <build>
         <plugins>
@@ -24,12 +29,11 @@
                     <keystorealias>Revivius</keystorealias>
                     <moduleDependencies>
                         <!-- need to declare this dependency to get private access to classes [org.netbeans.swing.plaf.util.RelativeColor, org.netbeans.swing.plaf.util.GuaranteedValue, org.netbeans.swing.plaf.util.UIBootstrapValue$Lazy, org.netbeans.swing.plaf.util.UIBootstrapValue] -->
-                        <dependency>
+<!--                        <dependency>
                             <id>org.netbeans.api:org-netbeans-swing-plaf</id>
                             <type>impl</type>
-                        </dependency>
+                        </dependency>-->
                     </moduleDependencies>
-
                 </configuration>
             </plugin>
             <plugin>
@@ -69,11 +73,24 @@
             <releases>
                 <enabled>true</enabled>
                 <checksumPolicy>ignore</checksumPolicy>
+                <updatePolicy>never</updatePolicy>
             </releases>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
             <url>file:///${project.basedir}/lib</url>
+        </repository>
+        <repository>
+            <id>localrepo</id>
+            <name>local</name>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>file:///C:/projects/.m2/repository</url>
         </repository>
         <repository>
             <id>netbeans</id>
@@ -142,17 +159,22 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <netbeans.version>RELEASE82</netbeans.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <description> A NetBeans Look And Feel plugin using Darcula of IntelliJ IDEA.</description>
     <distributionManagement>
-        <repository>
+        <!--        <repository>
             <id>inch-forge-thirdparty-releases</id>
             <name>inch-forge-thirdparty-releases</name>
             <url>http://inch-forge.skyguide.corp/artifactory/third-party</url>
+        </repository>-->
+        <repository>
+            <id>forge-releases</id>
+            <name>forge-releases</name>
+            <url>http://172.20.184.70:8040/artifactory/third-party</url>
         </repository>
+        <snapshotRepository>
+            <id>forge-snapshots</id>
+            <name>forge-snapshots</name>
+            <url>http://172.20.184.70:8040/artifactory/third-party</url>
+        </snapshotRepository>
     </distributionManagement>
-
 </project>
