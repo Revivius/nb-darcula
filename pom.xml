@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.revivius</groupId>
     <artifactId>com-revivius-nb-darcula</artifactId>
-    <version>1.6.3-SNAPSHOT</version>
+    <version>1.6.4</version>
     <packaging>nbm</packaging>
 
     <name>Darcula LAF for NetBeans</name>
 
     <properties>
-        <netbeans.version>RELEASE90</netbeans.version>
+        <netbeans.version>RELEASE113</netbeans.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

@@ -13,8 +13,9 @@ import org.openide.util.NbPreferences;
 import org.openide.windows.WindowManager;
 
 /**
- * Makes Darcula LAF available in preferred LAF combo, installs DarculaLFCustoms, set Preferences and switch the editor
- * color profile to Darcula theme.
+ * Makes Darcula LAF available in preferred LAF combo, installs
+ * DarculaLFCustoms, set Preferences and switch the editor color profile to
+ * Darcula theme.
  *
  * @author Revivius
  */
@@ -27,11 +28,11 @@ public class Installer extends ModuleInstall {
     @Override
     public void validate() throws IllegalStateException {
         Preferences prefs = NbPreferences.root().node("laf");
-        if (!prefs.getBoolean("darcula.installed", false)) {
+        if (DarculaLaf.class.getName().equals(prefs.get("laf", DarculaLaf.class.getName())) && !prefs.getBoolean("darcula.installed", false)) {
             prefs.put("laf", DarculaLaf.class.getName());
             SWITCH_EDITOR_COLORS = true;
+            prefs.putBoolean("darcula.installed", true);
         }
-        prefs.putBoolean("darcula.installed", true);
 
         // to make LAF available in Tools > Options > Appearance > Look and Feel
         UIManager.installLookAndFeel(new UIManager.LookAndFeelInfo(DarculaLaf.NAME, DarculaLaf.class.getName()));
@@ -51,10 +52,12 @@ public class Installer extends ModuleInstall {
     }
 
     /**
-     * Returns if possible to change color profile. Use reflection to instantiate ColorModel (private package) class and
-     * get the current profile.
+     * Returns if possible to change color profile. Use reflection to
+     * instantiate ColorModel (private package) class and get the current
+     * profile.
      *
-     * @return {@code true} if current profile not equals this theme profile name or {@code false} otherwise.
+     * @return {@code true} if current profile not equals this theme profile
+     * name or {@code false} otherwise.
      */
     private boolean isChangeEditorColorsPossible() {
         ClassLoader loader = Lookup.getDefault().lookup(ClassLoader.class);
@@ -75,8 +78,9 @@ public class Installer extends ModuleInstall {
     }
 
     /**
-     * Switch the editor color profile if possible. Use reflection to instantiate ColorModel (private package) class and
-     * set the current profile
+     * Switch the editor color profile if possible. Use reflection to
+     * instantiate ColorModel (private package) class and set the current
+     * profile
      */
     private void switchEditorColorsProfile() {
         if (!isChangeEditorColorsPossible()) {
