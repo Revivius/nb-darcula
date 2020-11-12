@@ -21,38 +21,40 @@ import com.bulenkov.iconloader.util.UIUtil;
  * @author Revivius
  */
 public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
-  private Icon splitGlueV = IconLoader.findIcon("/com/bulenkov/darcula/icons/splitGlueV.png", DarculaSplitPaneDivider.class, true);
-  private Icon splitGlueH = IconLoader.findIcon("/com/bulenkov/darcula/icons/splitGlueH.png", DarculaSplitPaneDivider.class, true);
 
- /**
-  * Creates an instance of DarculaSplitPaneDivider. Registers this
-  * instance for mouse events and mouse dragged events.
-  */
-  public DarculaSplitPaneDivider(DarculaSplitPaneUI ui) {
-    super(ui);
-  }
+    private Icon splitGlueV = IconLoader.findIcon("/com/bulenkov/darcula/icons/splitGlueV.png", DarculaSplitPaneDivider.class, true);
+    private Icon splitGlueH = IconLoader.findIcon("/com/bulenkov/darcula/icons/splitGlueH.png", DarculaSplitPaneDivider.class, true);
 
-  @Override
-  public void paint(Graphics g) {
-    super.paint(g);
+    /**
+     * Creates an instance of DarculaSplitPaneDivider. Registers this instance for mouse events and mouse dragged
+     * events.
+     */
+    public DarculaSplitPaneDivider(DarculaSplitPaneUI ui) {
+        super(ui);
+    }
 
-      if(splitPane.getOrientation() == JSplitPane.VERTICAL_SPLIT)
-          splitGlueV.paintIcon(this, g, getWidth() / 2, (getHeight() - splitGlueV.getIconHeight()) / 2);
-      else
-          splitGlueH.paintIcon(this, g, (getWidth() - splitGlueH.getIconWidth()) / 2, getHeight() / 2);
-  }
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
 
-  @Override
-  protected JButton createLeftOneTouchButton() {
-    JButton b = new JButton() {
-      public void setBorder(Border b) {
-      }
+        if (splitPane.getOrientation() == JSplitPane.VERTICAL_SPLIT) {
+            splitGlueV.paintIcon(this, g, getWidth() / 2, (getHeight() - splitGlueV.getIconHeight()) / 2);
+        } else {
+            splitGlueH.paintIcon(this, g, (getWidth() - splitGlueH.getIconWidth()) / 2, getHeight() / 2);
+        }
+    }
 
-      public void paint(Graphics g) {
-        if (splitPane != null) {
-          int[]   xs = new int[3];
-                    int[]   ys = new int[3];
-                    int     blockSize;
+    @Override
+    protected JButton createLeftOneTouchButton() {
+        JButton b = new JButton() {
+            public void setBorder(Border b) {
+            }
+
+            public void paint(Graphics g) {
+                if (splitPane != null) {
+                    int[] xs = new int[3];
+                    int[] ys = new int[3];
+                    int blockSize;
 
                     // Fill the background first ...
                     g.setColor(this.getBackground());
@@ -70,8 +72,7 @@ public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
                         ys[1] = ys[2] = blockSize;
                         g.drawPolygon(xs, ys, 3); // Little trick to make the
                         // arrows of equal size
-                    }
-                    else {
+                    } else {
                         blockSize = Math.min(getWidth(), ONE_TOUCH_SIZE);
                         xs[0] = xs[2] = blockSize;
                         xs[1] = 0;
@@ -82,6 +83,7 @@ public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
                     g.fillPolygon(xs, ys, 3);
                 }
             }
+
             // Don't want the button to participate in focus traversable.
             public boolean isFocusTraversable() {
                 return false;
@@ -100,11 +102,12 @@ public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
         JButton b = new JButton() {
             public void setBorder(Border border) {
             }
+
             public void paint(Graphics g) {
                 if (splitPane != null) {
-                    int[]          xs = new int[3];
-                    int[]          ys = new int[3];
-                    int            blockSize;
+                    int[] xs = new int[3];
+                    int[] ys = new int[3];
+                    int blockSize;
 
                     // Fill the background first ...
                     g.setColor(this.getBackground());
@@ -119,8 +122,7 @@ public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
                         xs[2] = 0;
                         ys[0] = blockSize;
                         ys[1] = ys[2] = 0;
-                    }
-                    else {
+                    } else {
                         blockSize = Math.min(getWidth(), ONE_TOUCH_SIZE);
                         xs[0] = xs[2] = 0;
                         xs[1] = blockSize;
@@ -132,6 +134,7 @@ public class DarculaSplitPaneDivider extends BasicSplitPaneDivider {
                     g.fillPolygon(xs, ys, 3);
                 }
             }
+
             // Don't want the button to participate in focus traversable.
             public boolean isFocusTraversable() {
                 return false;

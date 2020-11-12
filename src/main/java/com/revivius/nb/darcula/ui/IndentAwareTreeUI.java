@@ -24,13 +24,14 @@ import javax.swing.plaf.ComponentUI;
 import org.openide.util.NbPreferences;
 
 /**
- * Overriden to workarround isSkinny() method in DarculaTreeUI. 
+ * Overriden to workarround isSkinny() method in DarculaTreeUI.
+ *
  * @author Revivius
  */
 public class IndentAwareTreeUI extends DarculaTreeUI {
 
     private static final Preferences PREFS = NbPreferences.forModule(DarculaLAFPanel.class);
-    
+
     public static ComponentUI createUI(JComponent c) {
         return new IndentAwareTreeUI();
     }

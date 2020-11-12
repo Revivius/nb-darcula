@@ -23,8 +23,8 @@ import javax.swing.plaf.basic.BasicButtonUI;
 import sun.swing.SwingUtilities2;
 
 /**
- * A minor re-write of DarculaButtonUI to prevent painting background when
- * content area filled property is set to false on button.
+ * A minor re-write of DarculaButtonUI to prevent painting background when content area filled property is set to false
+ * on button.
  *
  * Mostly copy paste from DarculaButtonUI.
  *
@@ -86,15 +86,14 @@ public class ContentAreaAwareButtonUI extends BasicButtonUI {
         if (model.isEnabled()) {
             SwingUtilities2.drawStringUnderlineCharAt(c, g, text, mnemonicIndex, textRect.x
                     + getTextShiftOffset(), textRect.y + metrics
-                    .getAscent() + getTextShiftOffset());
+                            .getAscent() + getTextShiftOffset());
         } else {
             g.setColor(UIManager.getColor("Button.disabledText"));
             SwingUtilities2.drawStringUnderlineCharAt(c, g, text, -1, textRect.x
                     + getTextShiftOffset(), textRect.y + metrics
-                    .getAscent() + getTextShiftOffset());
+                            .getAscent() + getTextShiftOffset());
         }
     }
-    
 
     protected Paint getBackgroundPaint(JComponent c) {
         JButton b = (JButton) c;

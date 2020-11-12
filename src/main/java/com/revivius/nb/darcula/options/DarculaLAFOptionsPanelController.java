@@ -43,13 +43,12 @@ import org.openide.util.NbPreferences;
 })
 public final class DarculaLAFOptionsPanelController extends OptionsPanelController {
 
-    
     public static final String OVERRIDE_FONT_BOOLEAN = "overrideFont";
     public static final String FONT_STRING = "font";
-    
+
     public static final String OVERRIDE_TREE_INDENT_BOOLEAN = "overrideTreeIndent";
     public static final String TREE_INDENT_INT = "treeIndent";
-    
+
     public static final String INVERT_ICONS_BOOLEAN = "invertIcons";
     public static final String STRETCHED_TABS_BOOLEAN = "stretchedTabs";
 
@@ -61,20 +60,20 @@ public final class DarculaLAFOptionsPanelController extends OptionsPanelControll
                     ImageUtilities.loadImageIcon("com/revivius/nb/darcula/options/restart.png", true),
                     "Click here to restart IDE and apply new settings.",
                     new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            LifecycleManager.getDefault().markForRestart();
-                            LifecycleManager.getDefault().exit();
-                        }
-                    }
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    LifecycleManager.getDefault().markForRestart();
+                    LifecycleManager.getDefault().exit();
+                }
+            }
             );
         }
     };
-    
+
     static {
         NbPreferences.forModule(DarculaLAFPanel.class).addPreferenceChangeListener(PREF_LISTENER);
     }
-    
+
     private DarculaLAFPanel panel;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;

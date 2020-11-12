@@ -28,11 +28,11 @@ public class Installer extends ModuleInstall {
     @Override
     public void validate() throws IllegalStateException {
         Preferences prefs = NbPreferences.root().node("laf");
-        if (!prefs.getBoolean("darcula.installed", false)) {
+        if (DarculaLaf.class.getName().equals(prefs.get("laf", DarculaLaf.class.getName())) && !prefs.getBoolean("darcula.installed", false)) {
             prefs.put("laf", DarculaLaf.class.getName());
             SWITCH_EDITOR_COLORS = true;
+            prefs.putBoolean("darcula.installed", true);
         }
-        prefs.putBoolean("darcula.installed", true);
 
         // to make LAF available in Tools > Options > Appearance > Look and Feel
         UIManager.installLookAndFeel(new UIManager.LookAndFeelInfo(DarculaLaf.NAME, DarculaLaf.class.getName()));
@@ -48,7 +48,7 @@ public class Installer extends ModuleInstall {
                     switchEditorColorsProfile();
                 }
             });
-        };
+        }
     }
 
     /**
@@ -71,8 +71,8 @@ public class Installer extends ModuleInstall {
             Object invokeResult = method.invoke(colorModel, new Object[0]);
             return invokeResult != null && !DarculaLaf.NAME.equals(invokeResult);
         } catch (Exception ex) {
-            //ignore
-            Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot get the current editor colors profile.", ex);
+            // log the problem
+            Logger.getLogger(Installer.class.getName()).log(Level.INFO, "Cannot get the current editor colors profile ({0}).", ex.getClass().getName());
         }
         return false;
     }
