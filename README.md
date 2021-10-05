@@ -4,7 +4,7 @@ A NetBeans Look And Feel plugin using Darcula of IntelliJ IDEA.
 
 Wraps [Darcula LAF](https://github.com/bulenkov/Darcula) and provides required NetBeans specific customizations. **Many thanks to Konstantin Bulenkov for open sourcing original Darcula LAF.**
 
-The most recent stable version of this plugin is available at the NetBeans Plugin Portal as [Darcula LAF for NetBeans](http://plugins.netbeans.org/plugin/62424/darcula-laf-for-netbeans) and thus it can be installed from "Tools|Plugins|Available Plugins" from the NetBeans IDE.
+The most recent stable version of this plugin is available in the archived [NetBeans 8.2 Distribution Update Center](http://plugins.archive.librebeans.org/catalogue/8.2/catalog.xml) as _Darcula LAF for NetBeans_ and thus it can be installed from "Tools|Plugins|Available Plugins" from the NetBeans IDE after registering that URL as a new Update Center in "Tools|Plugins|Settings".
 
 ## Change Log
 
